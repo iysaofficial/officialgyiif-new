@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "../../../components/navigation";
 import { Footer } from "../../../components/footer";
+import Link from "next/link";
 
 const Jenjangofl23 = () => {
   return (
@@ -11,7 +12,9 @@ const Jenjangofl23 = () => {
         <h1>List of Winners</h1>
         <ul>
           <li className="titik">
-            <a href="/low/2023/kategori23">Previous Page</a>
+            <Link href="/low/2023/kategori23" legacyBehavior>
+              <a>Previous Page</a>
+            </Link>
           </li>
           <li>List of Winners 2023 Offline</li>
         </ul>
@@ -27,30 +30,42 @@ const Jenjangofl23 = () => {
               </h1>
             </div>
             <div className="content text-center mt-5">
-              <a
+              <Link
                 href="https://drive.google.com/file/d/1eViE-28ggEt9RPCCepV-6AsE5H0CaUnK/view?usp=sharing"
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-custom m-2"
+                legacyBehavior
               >
-                University
-              </a>
-              <a
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-custom m-2"
+                >
+                  University
+                </a>
+              </Link>
+              <Link
                 href="https://drive.google.com/file/d/1jFM5r3kJVIZIY_QlyNEUh9x5n9WeGJH5/view?usp=sharing"
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-custom m-2"
+                legacyBehavior
               >
-                Senior High School
-              </a>
-              <a
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-custom m-2"
+                >
+                  Senior High School
+                </a>
+              </Link>
+              <Link
                 href="https://drive.google.com/file/d/1FMkE2r1tIprynmxfyo9osP92fEKBIxXf/view?usp=sharing"
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-custom m-2"
+                legacyBehavior
               >
-                Junior High School
-              </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-custom m-2"
+                >
+                  Junior High School
+                </a>
+              </Link>
             </div>
           </div>
         </div>

@@ -1,13 +1,19 @@
+import Link from "next/link";
+
 export const Footer = (props) => {
-    return (
-        <>
+  return (
+    <>
       <footer className="bg-dark text-white pt-5 pb-4" id="footer">
         <div className="container text-center text-md-left">
           <div className="row text-center text-md-left">
             <div className="col-md-4 col-lg-4 col-xl-4 mx-auto mt-3">
               <h3 className="text-uppercase mb-4 font-weight-bold">About Us</h3>
               <p>
-                By looking at the development and knowledge of children today about science, invention and innovation, especially in the field of science, it requires us to know the extent of the students insights, knowledge and abilities in applying their knowledge of science.
+                By looking at the development and knowledge of children today
+                about science, invention and innovation, especially in the field
+                of science, it requires us to know the extent of the students
+                insights, knowledge and abilities in applying their knowledge of
+                science.
               </p>
               <div>
                 <a
@@ -34,33 +40,43 @@ export const Footer = (props) => {
                 </a>
               </div>
             </div>
-  
+
             <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-              <h3 className="text-uppercase mb-4 font-weight-bold">Information Links</h3>
+              <h3 className="text-uppercase mb-4 font-weight-bold">
+                Information Links
+              </h3>
               <ul className="list-unstyled">
                 <li className="my-2">
-                  <a href="/" className="text-white">Home</a>
+                  <Link href="/" legacyBehavior>
+                    <a className="text-white">Home</a>
+                  </Link>
                 </li>
                 <li className="my-2">
-                  <a href="/#about" className="text-white">About</a>
+                  <Link href="/#about" legacyBehavior>
+                    <a className="text-white">About</a>
+                  </Link>
                 </li>
                 <li className="my-2">
-                  <a href="/#contact" className="text-white">Contact</a>
+                  <Link href="/#contact" legacyBehavior>
+                    <a className="text-white">Contact</a>
+                  </Link>
                 </li>
               </ul>
             </div>
           </div>
-  
+
           <hr className="mb-4" />
-  
+
           <div className="">
-              <p className="text-center">
-                &copy; 2022 Official GYIIF. Design by <a href="./#" className="text-white" rel="nofollow">IYSA IT</a>
-              </p>
+            <p className="text-center">
+              &copy; 2022 Official GYIIF. Design by{" "}
+              <a href="./#" className="text-white" rel="nofollow">
+                IYSA IT
+              </a>
+            </p>
           </div>
         </div>
       </footer>
-      </>
-    );
-  };
-  
+    </>
+  );
+};

@@ -1,19 +1,22 @@
 import React from "react";
 import Navigation from "../../../components/navigation";
 import { Footer } from "../../../components/footer";
+import Link from "next/link";
 
 const Jenjangonl23 = () => {
   return (
     <>
       <Navigation />
-       {/* PAGE HEADER START */}
-       <div className="page-header">
+      {/* PAGE HEADER START */}
+      <div className="page-header">
         <h1>List of Winners</h1>
         <ul>
           <li className="titik">
-            <a href="/low/2023/kategori23">Previous Page</a>
+            <Link href="/low/2023/kategori23" legacyBehavior>
+              <a>Previous Page</a>
+            </Link>
           </li>
-          <li>List of Winners 2023  Online</li>
+          <li>List of Winners 2023 Online</li>
         </ul>
       </div>
       {/* PAGE HEADER END */}
@@ -27,35 +30,54 @@ const Jenjangonl23 = () => {
               </h1>
             </div>
             <div className="content text-center mt-5">
-              <a
+              <Link
                 href="https://drive.google.com/file/d/1bjBG4-E4-bjIulBuZ1jvAcxxlDn-b06_/view?usp=sharing"
-                target="_blank" rel="noreferrer"
-                className="btn btn-custom m-2"
+                legacyBehavior
               >
-                University
-              </a>
-              <a
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-custom m-2"
+                >
+                  University
+                </a>
+              </Link>
+              <Link
                 href="https://drive.google.com/file/d/1eCt2KaVj-EvOXU4utWEwaSI6QJLAeeg9/view?usp=sharing"
-                target="_blank" rel="noreferrer"
-                className="btn btn-custom m-2"
+                legacyBehavior
               >
-                Senior High School
-              </a>
-              <a
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-custom m-2"
+                >
+                  Senior High School
+                </a>
+              </Link>
+              <Link
                 href="https://drive.google.com/file/d/1Zg4ZYjqvBM-4zXzDPUiDuSKjZO0yEzkN/view?usp=sharing"
-                target="_blank" rel="noreferrer"
-                className="btn btn-custom m-2"
+                legacyBehavior
               >
-                Junior High School
-              </a>
-              <a
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-custom m-2"
+                >
+                  Junior High School
+                </a>
+              </Link>
+              <Link
                 href="https://drive.google.com/file/d/1EWRK9UuK7ayHTgjitr3qqPzkjcDDWavL/view?usp=sharing"
-                target="_blank" rel="noreferrer"
-                
-                className="btn btn-custom m-2"
+                legacyBehavior
               >
-                Elementary School
-              </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-custom m-2"
+                >
+                  Elementary School
+                </a>
+              </Link>
             </div>
           </div>
         </div>

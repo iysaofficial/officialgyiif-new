@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "../../../components/navigation";
 import { Footer } from "../../../components/footer";
+import Link from "next/link";
 
 const kategori24 = () => {
   return (
@@ -11,7 +12,9 @@ const kategori24 = () => {
         <h1>List of Winners</h1>
         <ul>
           <li className="titik">
-            <a href="/low/lowtahun">Previous Page</a>
+            <Link href="/low/lowtahun" legacyBehavior>
+              <a>Previous Page</a>
+            </Link>
           </li>
           <li>List of Winners 2024</li>
         </ul>
@@ -27,20 +30,26 @@ const kategori24 = () => {
               </h1>
             </div>
             <div className="content text-center mt-5">
-              <a
+              <Link
                 href="https://drive.google.com/file/d/1R4DqU4bRaqh-BiMuQSufpnRv23wiL-uC/view?usp=sharing"
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-custom m-2"
+                legacyBehavior
               >
-                Special Award
-              </a>
-              <a href="/low/2024/jenjangofl24" className="btn btn-custom m-2">
-                GYIIF OFFLINE
-              </a>
-              <a href="/low/2024/jenjangonl24" className="btn btn-custom m-2">
-                GYIIF ONLINE
-              </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-custom m-2"
+                >
+                  Special Award
+                </a>
+              </Link>
+              <Link href="/low/2024/jenjangofl24" legacyBehavior>
+                <a className="btn btn-custom m-2">GYIIF OFFLINE</a>
+              </Link>
+              <Link href="/low/2024/jenjangonl24" legacyBehavior>
+                <a className="btn btn-custom m-2">
+                  GYIIF ONLINE
+                </a>
+              </Link>
             </div>
           </div>
         </div>

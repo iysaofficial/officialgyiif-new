@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "../../../components/navigation";
 import { Footer } from "../../../components/footer";
+import Link from "next/link";
 
 const jenjangofl24 = () => {
   return (
@@ -11,7 +12,9 @@ const jenjangofl24 = () => {
         <h1>List of Winners</h1>
         <ul>
           <li className="titik">
-            <a href="/low/2024/kategori24">Previous Page</a>
+            <Link href="/low/2024/kategori24" legacyBehavior>
+              <a>Previous Page</a>
+            </Link>
           </li>
           <li>List of Winners 2024 Offline</li>
         </ul>
@@ -27,30 +30,42 @@ const jenjangofl24 = () => {
               </h1>
             </div>
             <div className="content text-center">
-              <a
+              <Link
                 href="https://drive.google.com/file/d/1gZzaSjcfRdoEt83v6jIY2FUbcpXOJZ76/view?usp=sharing"
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-custom m-2"
+                legacyBehavior
               >
-                University
-              </a>
-              <a
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-custom m-2"
+                >
+                  University
+                </a>
+              </Link>
+              <Link
                 href="https://drive.google.com/file/d/1P7DvPc2OTVvAGmW9C6DHD5keBB4_5aRH/view?usp=sharing"
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-custom m-2"
+                legacyBehavior
               >
-                Junior High School
-              </a>
-              <a
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-custom m-2"
+                >
+                  Junior High School
+                </a>
+              </Link>
+              <Link
                 href="https://drive.google.com/file/d/16-8-mUAJnRzEu4rTrXcgzXFptMkGKHY2/view?usp=sharing"
-                target="_blank"
-                rel="noreferrer"
-                className="btn btn-custom m-2"
+                legacyBehavior
               >
-                Elementary School
-              </a>
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-custom m-2"
+                >
+                  Elementary School
+                </a>
+              </Link>
             </div>
           </div>
         </div>

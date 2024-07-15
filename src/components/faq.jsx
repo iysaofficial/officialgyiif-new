@@ -1,3 +1,5 @@
+import Link
+ from "next/link";
 export const Faq = (props) => {
   return (
     <>
@@ -6,7 +8,9 @@ export const Faq = (props) => {
         <h1>Frequently Asked Questions</h1>
         <ul>
           <li className="titik">
-            <a href="/">Home</a>
+            <Link href="/" legacyBehavior>
+            <a>Home</a>
+            </Link>
           </li>
           <li>FAQ</li>
         </ul>

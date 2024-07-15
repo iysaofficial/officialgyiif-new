@@ -1,6 +1,7 @@
 import React from "react";
 import Navigation from "../../components/navigation";
 import { Footer } from "../../components/footer";
+import Link from "next/link";
 
 const lowtahun = () => {
   return (
@@ -11,7 +12,9 @@ const lowtahun = () => {
         <h1>List of Winners</h1>
         <ul>
           <li className="titik">
-            <a href="/">Home</a>
+            <Link href="/" legacyBehavior>
+              <a>Home</a>
+            </Link>
           </li>
           <li>List of Winners</li>
         </ul>
@@ -24,12 +27,12 @@ const lowtahun = () => {
               <h1>Select by the year of the event you are participating in</h1>
             </div>
             <div className="content text-center mt-5">
-              <a href="/low/2024/kategori24" className="btn btn-custom m-2">
-                2024
-              </a>
-              <a href="/low/2023//kategori23" className="btn btn-custom m-2">
-                2023
-              </a>
+              <Link href="/low/2024/kategori24" legacyBehavior>
+                <a className="btn btn-custom m-2">2024</a>
+              </Link>
+              <Link href="/low/2023//kategori23" legacyBehavior>
+                <a className="btn btn-custom m-2">2023</a>
+              </Link>
             </div>
           </div>
         </div>

@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
-const navigation = () => {
+const Navigation = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
 
   const handleDropdownToggle = (dropdown) => {
@@ -162,4 +162,4 @@ const navigation = () => {
   );
 };
 
-export default navigation;
+export default Navigation;
