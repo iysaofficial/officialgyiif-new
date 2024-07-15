@@ -39,13 +39,13 @@ export const Footer = (props) => {
               <h3 className="text-uppercase mb-4 font-weight-bold">Information Links</h3>
               <ul className="list-unstyled">
                 <li className="my-2">
-                  <a href="./#" className="text-white">Home</a>
+                  <a href="/" className="text-white">Home</a>
                 </li>
                 <li className="my-2">
-                  <a href="./#about" className="text-white">About</a>
+                  <a href="/#about" className="text-white">About</a>
                 </li>
                 <li className="my-2">
-                  <a href="./#contact" className="text-white">Contact</a>
+                  <a href="/#contact" className="text-white">Contact</a>
                 </li>
               </ul>
             </div>

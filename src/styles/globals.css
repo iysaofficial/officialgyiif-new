@@ -534,7 +534,7 @@ label {
 .faq-section {
   background: #fdfdfd;
   min-height: 100vh;
-  padding: 10vh 0 0;
+  margin: 100px 0 100px 0;
 }
 .faq-title h2 {
   position: relative;
@@ -654,6 +654,8 @@ label {
 .page-header{
   padding: 150px 25px 75px 25px;
   background: var(--warna-primary);
+  text-align: center;
+  align-content: center;
 }
 .page-header h1{
   color: var(--warna-tulisan2);
@@ -664,7 +666,6 @@ label {
 }
 
 .page-header .divider{
-  mask-image:url("data:image/svg+xml;utf8,%3csvg viewBox='0 0 100 100' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='none'%3e%3cpath d='M0,0 C16.6666667,66 33.3333333,98 50,98 C66.6666667,98 83.3333333,66 100,0 L100,100 L0,100 L0,0 Z' fill='%23fff'/%3e%3c/svg%3e");
   width: 100% !important;
   position: absolute;
   pointer-events: none;
@@ -673,7 +674,32 @@ label {
   z-index: -1;
   bottom: 0;
   left: 0;
+}
 
+.page-header ul{
+  padding-left: 0;
+  list-style-type: none;
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+.page-header ul li {
+  color: var(--warna-tulisan2);
+  display: inline-block;
+  position: relative;
+  opacity: .9;
+  margin-left: 15px;
+}
+
+.page-header ul .titik::before{
+  border-radius: 50%;
+  background-color: var(--warna-tulisan2);
+  height: 5px;
+  width: 5px;
+  position: absolute;
+  content: "";
+  right: -12px;
+  transform: translate(-50%);
+  top: 45%;
 }
 
 /* PAGE HEADER END */
@@ -876,3 +902,13 @@ color: var(--warna-tulisan2);
 
 /* REGISTRATION END */
 /* REGISTRATION END */
+
+
+/* LOW START */
+/* LOW STAT */
+.low-section{
+  padding: 100px 0px 100px 0px;
+  align-content: center;
+}
+/* LOW END */
+/* LOW END */

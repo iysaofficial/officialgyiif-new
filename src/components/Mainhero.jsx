@@ -17,9 +17,9 @@ export const Mainhero = (props) => {
           <h2 style={{ color: "white" }}>
             GLOBAL YOUTH INVENTION AND INNOVATION FAIR
           </h2>
-          <Link href="/homeregist" legacyBehavior>
+          {/* <Link href="/homeregist" legacyBehavior>
             <a className="btn btn-primary btn-action">Link Registration</a>
-          </Link>
+          </Link> */}
         </div>
         <ParticlesBg
           type="circle"

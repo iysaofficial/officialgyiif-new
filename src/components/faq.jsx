@@ -1,9 +1,19 @@
 export const Faq = (props) => {
   return (
     <>
+      {/* PAGE HEADER START */}
+      <div className="page-header">
+        <h1>Frequently Asked Questions</h1>
+        <ul>
+          <li className="titik">
+            <a href="/">Home</a>
+          </li>
+          <li>FAQ</li>
+        </ul>
+      </div>
+      {/* PAGE HEADER END */}
       <section className="faq-section">
         <div id="faq" className="faq container">
-          <h2 class=" text-center mb-5">FAQ</h2>
 
           <div className="row">
             <div className="faq-title text-center">
@@ -87,7 +97,7 @@ export const Faq = (props) => {
               <br />
               <h2>After the Event</h2>
             </div>
-            
+
             <div className="col-md-12">
               <div className="faq" id="accordion">
                 {data3.map((item, i) => (
@@ -120,7 +130,6 @@ export const Faq = (props) => {
                 ))}
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -264,8 +273,7 @@ const data3 = [
     no: "2",
     datatarget: "#faqCollapse-After-2",
     id: "faqCollapse-After-2",
-    question:
-      "Where can we see the winning results?",
+    question: "Where can we see the winning results?",
     answer:
       "You can check the final results on the official website of the event you are participating in.",
   },
@@ -283,7 +291,7 @@ const data3 = [
     id: "faqCollapse-After-4",
     question: "When is the online delivery of participant certificates?",
     answer:
-      'The certificate will be sent no later than one month after the announcement of the winner. You can periodically check the delivery receipt that we sent on the Whatsapp group whether your certificate has been sent or not.',
+      "The certificate will be sent no later than one month after the announcement of the winner. You can periodically check the delivery receipt that we sent on the Whatsapp group whether your certificate has been sent or not.",
   },
   {
     no: "5",
@@ -300,5 +308,5 @@ const data3 = [
     question: "How to do medal doubling?",
     answer:
       "For offline participants, you can immediately duplicate the medals on the spot after the announcement of the winners takes place. And for online participants, you can duplicate the medals via the link we sent on the Whatsapp group, we will send duplicate information on the Whatsapp group no later than 2 days after the announcement of the winner.",
-  }
+  },
 ];
