@@ -45,7 +45,7 @@ const Contact = ({ contactInfo }) => {
                 get back to you as soon as possible.
               </p>
             </div>
-            <form onSubmit={handleSubmit} name="sentMessage">
+            <form action="https://formspree.io/f/mknlrzbr" method="POST">
               <div className="row">
                 <div className="col-md-6">
                   <div className="form-group">
@@ -70,8 +70,6 @@ const Contact = ({ contactInfo }) => {
                       name="email"
                       className="form-control"
                       placeholder="Email"
-                      value={email}
-                      onChange={handleChange}
                       required
                     />
                     <p className="help-block text-danger"></p>
@@ -85,20 +83,11 @@ const Contact = ({ contactInfo }) => {
                   className="form-control"
                   rows="4"
                   placeholder="Message"
-                  value={message}
-                  onChange={handleChange}
                   required
                 ></textarea>
                 <p className="help-block text-danger"></p>
               </div>
-              <div id="success"></div>
-              <button
-                type="submit"
-                value="send"
-                className="btn btn-custom btn-lg"
-              >
-                Send Message
-              </button>
+              <button type="submit" className="btn btn-custom btn-lg" >Send Message</button>
             </form>
           </div>
         </div>
