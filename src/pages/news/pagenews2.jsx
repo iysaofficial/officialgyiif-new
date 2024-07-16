@@ -53,7 +53,7 @@ const PageNews2 = () => {
               Apip Pranata, Amalia Gita Pramesti, Aryasatya Gian Ramadhan,
               Girindra Eka Paksi Putra Ottaviano, and Kahyana Hendrawan
               Wicaksono succeeded in winning a SILVER MEDAL with the title
-              "Anthelmintic Jelly Candy from Leocaena leucocephala Extract"
+              &quot;Anthelmintic Jelly Candy from Leocaena leucocephala Extract&quot;
               which offers worm medicine for children -children in the form of
               jelly candy. The creation of this worming candy was inspired by
               the high prevalence of worms among children but they are reluctant
@@ -66,10 +66,10 @@ const PageNews2 = () => {
               proud and happy that his students had succeeded in winning awards
               at a fairly prestigious international event.“Alhamdulillah,
               congratulations and success always to the great children!
-              "Continue to be in the process of getting better, and all of these
+              &quot;Continue to be in the process of getting better, and all of these
               achievements cannot be separated from the support of all teachers
               and employees at SMA Negeri 2 Cilacap as well as prayers from all
-              the people of Cilacap Regency," said Masripah. (wd/kominfo)
+              the people of Cilacap Regency&quot; said Masripah. (wd/kominfo)
             </p>
 
             <a>Source: </a>

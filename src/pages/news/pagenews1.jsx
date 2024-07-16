@@ -68,7 +68,7 @@ const PageNews1 = () => {
               competition to carry out judging directly with the judges. On the
               third day (13/1), the event was filled with a seminar with
               Dr.-Ing. Dase Hunaefi, STP, MFoodST, who provided material on
-              "INVITRO MEAT AND MEAT ANALOG" and continued with the announcement
+              &quot;INVITRO MEAT AND MEAT ANALOG&quot; and continued with the announcement
               of the winning teams that took part in the online competition in
               the evening. Meanwhile, on the last day (14/1) we announced the
               winners for the teams taking part in the offline competition.
@@ -92,8 +92,8 @@ const PageNews1 = () => {
               IYMIA events!
             </p>
             <p>
-              Let's continue to work, achieve and develop with IYSA. If they can
-              do it, why can't you? Come achieve your achievements with us.
+              Let&apos;s continue to work, achieve and develop with IYSA. If they can
+              do it, why can&apos;t you? Come achieve your achievements with us.
             </p>
             <a>Source: </a>
             <Link

@@ -669,13 +669,9 @@ label {
 .news-section .card-news{
   border: solid 2px #10101010;
   height: auto;
-  /* width: 225px; */
   margin: 10px;
-  margin-top: 10px;
 }
-.news-section .card-news .content img{
-  max-width: 100%; 
-}
+
 .news-section .card-news .content a{
   color: black;
 }

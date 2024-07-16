@@ -1,6 +1,7 @@
 import Navigation from "../../components/navigation";
 import { Footer } from "../../components/footer";
 import Link from "next/link";
+import Image from "next/image";
 
 const Listnews = () => {
   return (
@@ -24,10 +25,12 @@ const Listnews = () => {
           <div className="row">
             <div className="card-news col-xs-12 col-md-4">
               <div className="content">
-                <img
-                  className=""
+                <Image
                   src="/assets/img/news/GYIIFIYMIA29.jpg"
-                  alt=""
+                  className="img-fluid img-responsive mt-2"
+                  width={400} // Sesuaikan lebar gambar
+                  height={100} // Sesuaikan tinggi gambar
+                  alt="Foto 1"
                 />
                 <h4 className="text-center">
                   Held for the Second Time at IPB, 14 Countries Compete in the
@@ -47,7 +50,13 @@ const Listnews = () => {
             </div>
             <div className="card-news col-xs-12 col-md-4">
               <div className="content">
-                <img className="" src="/assets/img/news/sma22.jpg" alt="" />
+                <Image
+                  src="/assets/img/news/sma22.jpg"
+                  className="img-fluid img-responsive mt-2"
+                  width={400} // Sesuaikan lebar gambar
+                  height={100} // Sesuaikan tinggi gambar
+                  alt="Foto 1"
+                />
                 <h4 className="text-center">
                   SMA NEGERI 2 CILACAP WINS SILVER MEDAL IN THE GLOBAL YOUTH
                   INVENTION AND INNOVATION FAIR (GYIIF) 2024
