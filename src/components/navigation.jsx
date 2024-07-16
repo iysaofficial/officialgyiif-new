@@ -56,7 +56,7 @@ const Navigation = () => {
                       openDropdown === "mediaCoverage" ? " show" : ""
                     }`}
                   >
-                    <Link href="" legacyBehavior>
+                    <Link href="/news/listnews" legacyBehavior>
                       <a className="dropdown-item">News</a>
                     </Link>
                     <Link
