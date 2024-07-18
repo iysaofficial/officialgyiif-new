@@ -15,6 +15,11 @@ function IndoensiaParticipants() {
   const [phone, setPhone] = useState(""); // Menambah state untuk phone (Nomor WhatsApp)
   const adminFee = 4500; // Biaya admin tetap
 
+  const [selectedMaxNamaLengkap, setselectedMaxNamaLengkap] = useState("");
+  const maxNameChars = 180; // batasan maksimal karakter
+  const [selectedMaxProject, setselectedMaxProject] = useState("");
+  const maxProjectChars = 160; // batasan maksimal karakter
+
   const generateUniqueId = () => {
     const timestamp = new Date().getTime();
     return `GYIIF${timestamp}`;
@@ -67,8 +72,7 @@ function IndoensiaParticipants() {
     if (
       selectedCategory !== "GYIIF Online Competition" &&
       selectedCategory !== "GYIIF Offline Competition" &&
-      selectedCategory !== "GYIIF Offline + Full Pack" &&
-      selectedCategory !== "GYIIF Offline + Medali"       
+      selectedCategory !== "GYIIF Offline + Excursion"
     ) {
       alert(
         "Anda harus memilih salah satu kategori untuk membuat tautan pembayaran."
@@ -137,10 +141,8 @@ function IndoensiaParticipants() {
       setPrice("100000");
     } else if (selectedCategory === "GYIIF Offline Competition") {
       setPrice("200000");
-    } else if (selectedCategory === "GYIIF Offline + Full Pack") {
+    } else if (selectedCategory === "GYIIF Offline + Excursion") {
       setPrice("500000");
-    } else if (selectedCategory === "GYIIF Offline + Medali") {
-      setPrice("300000");
     } else {
       setPrice("");
     }
@@ -153,7 +155,7 @@ function IndoensiaParticipants() {
   const handleSubmitForm = async (e) => {
     e.preventDefault();
     const scriptURL =
-      "https://script.google.com/macros/s/AKfycbwWMFqBTySdQaSaV3yv0KcPqU2qjpBblcje_4TNulzhcXMvlVlA8RcijMi_mhbjQ_oG/exec";
+      "https://script.google.com/macros/s/AKfycbzmJFF_At7dHbSksEFc11YzcrwCqx8XsP2ui2UHtdESpW9MNXGwXaTUFeSxDvq1aRBa/exec";
     const form = document.forms["regist-form"];
 
     if (form) {
@@ -172,7 +174,7 @@ function IndoensiaParticipants() {
 
   useEffect(() => {
     const scriptURL =
-      "https://script.google.com/macros/s/AKfycbwWMFqBTySdQaSaV3yv0KcPqU2qjpBblcje_4TNulzhcXMvlVlA8RcijMi_mhbjQ_oG/exec";
+      "https://script.google.com/macros/s/AKfycbzmJFF_At7dHbSksEFc11YzcrwCqx8XsP2ui2UHtdESpW9MNXGwXaTUFeSxDvq1aRBa/exec";
 
     const form = document.forms["regist-form"];
 
@@ -183,7 +185,7 @@ function IndoensiaParticipants() {
           await fetch(scriptURL, { method: "POST", body: new FormData(form) });
 
           // Setelah berhasil mengirim data, arahkan pengguna ke halaman lain
-          window.location.href = "/terimakasih"; // Gantikan dengan URL halaman sukses Anda
+          window.location.href = "/"; // Gantikan dengan URL halaman sukses Anda
         } catch (error) {
           console.error("Error saat mengirim data:", error);
           // Handle error jika diperlukan
@@ -200,6 +202,21 @@ function IndoensiaParticipants() {
       };
     }
   }, []);
+
+  const handleInputNameChange = (e) => {
+    const { value } = e.target;
+    if (value.length <= maxNameChars) {
+      setselectedMaxNamaLengkap(value);
+    }
+  };
+
+  const handleInputProjectChange = (e) => {
+    const { value } = e.target;
+    if (value.length <= maxProjectChars) {
+      setselectedMaxProject(value);
+    }
+  };
+
   return (
     <>
       <Navigation />
@@ -220,19 +237,15 @@ function IndoensiaParticipants() {
               dikirim sudah final dan tidak mengalami perubahan.
             </p>
             <p>
-              2. Pastikan invoice id sudah terbuat agar tombol untuk kirim data bisa muncul.
+              2. Pastikan <span className="fw-bold">&quot;INVOICE ID&quot;</span> sudah terbuat agar tombol untuk <span className="fw-bold">&quot;KIRIM &quot;</span> data
+              bisa muncul.
             </p>
             <p>
               3. Setelah memastikan data sudah benar, Anda dapat mengklik tombol
-              &quot;Kirim&quot;. Jika kami telah menerima data Anda, akan ada
-              notifikasi berwarna hijau di sebelah tombol &quot;Kirim&quot;.
+              <span className="fw-bold"> &quot;KIRIM&quot;</span> cukup sekali saja. Jika data telah berhasil dikirimkan, Anda akan dipindahkan ke halaman lain.
             </p>
             <p>
-              4. Notifikasi: Data telah berhasil terkirim data registrasi akan
-              dikirimkan ke alamat email ketua tim, dan berkas akan divalidasi
-              oleh tim kami.Mohon bersabar dan tunggu hingga 3 hari setelah
-              waktu pendaftaran. Surat Penerimaan (LOA) akan kami kirimkan ke
-              alamat email ketua tim.
+              4. Akan ada email informasi bahwa pendaftaran telah diterima yang dikirimkan ke alamat email ketua tim, dan berkas akan divalidasi oleh tim kami. Mohon bersabar dan tunggu maksimal 3 hari setelah waktu pendaftaran, Letter of Acceptance (LOA) akan dikirimkan ke alamat email team leader.
             </p>
             <br></br>
 
@@ -241,7 +254,9 @@ function IndoensiaParticipants() {
               <h1 className="garis-bawah"></h1>
               <div className="user-details">
                 <div className="input-box">
-                  <label className="form-label" value="Peserta Indonesia">Kategori Peserta</label>
+                  <label className="form-label" value="Peserta Indonesia">
+                    Kategori Peserta
+                  </label>
                   <input
                     type="text"
                     id="CATEGORY_PARTICIPANT"
@@ -261,12 +276,10 @@ function IndoensiaParticipants() {
                   </label>
                   <label>
                     <p>
-                      Masukan nama ketua dan anggota tim dengan nama
-                      ketua tim diawal, dengan format seperti berikut :
+                      Masukan nama ketua dan anggota tim dengan nama ketua tim
+                      diawal, dengan format seperti berikut :
                     </p>
-                    <p>
-                      Note : maksimal 5 anggota + 1 ketua tim
-                    </p>
+                    <p>Note : maksimal 5 anggota + 1 ketua tim</p>
                     <h6>Kamal Putra</h6>
                     <h6>Ranu Ramadhan</h6>
                     <h6>Irsyad Zaidan</h6>
@@ -278,9 +291,12 @@ function IndoensiaParticipants() {
                     className="form-control"
                     placeholder="Masukan Nama Ketua & Anggota"
                     required
-                    value={selectedNamaLengkap}
-                    onChange={(e) => setSelectedNamaLengkap(e.target.value)} // Menambahkan handler onChange
+                    value={selectedMaxNamaLengkap}
+                    onChange={handleInputNameChange}
                   ></textarea>
+                  <p>
+                    {selectedMaxNamaLengkap.length} / {maxNameChars} karakter
+                  </p>
                 </div>
                 <div className="input-box">
                   <label htmlFor="LEADER_WHATSAPP" className="form-label">
@@ -288,7 +304,8 @@ function IndoensiaParticipants() {
                   </label>
                   <label>
                     <p>
-                      Harap tulis dengan kode telepon, contoh : +6281770914129
+                      Harap tulis dengan kode telepon, contoh :  (kode negara)
+                      (nomor telepon) +62 81770914xxxx
                     </p>
                     <p>
                       Notes : Dimohon untuk mengisi nomor ketua tim dengan
@@ -467,7 +484,8 @@ function IndoensiaParticipants() {
                     Nomor WhatsApp Guru/Pembimbing
                   </label>
                   <label>
-                    Mohon tuliskan dengan kode telepon, contoh : +628177091xxxx
+                  Harap tulis dengan kode telepon, contoh :  (kode negara)
+                  (nomor telepon) +62 81770914xxx
                   </label>
                   <input
                     type="number"
@@ -524,11 +542,8 @@ function IndoensiaParticipants() {
                     <option value="GYIIF Offline Competition">
                       Kompetisi Offline
                     </option>
-                    <option value="GYIIF Offline + Full Pack">
-                      Kompetisi Offline Full Pack
-                    </option>
-                    <option value="GYIIF Offline + Medali">
-                      Kompetisi Offline + Medali
+                    <option value="GYIIF Offline + Excursion">
+                      Kompetisi Offline + Excursion
                     </option>
                   </select>
                 </div>
@@ -542,8 +557,7 @@ function IndoensiaParticipants() {
                     disabled={
                       selectedCategory !== "GYIIF Online Competition" &&
                       selectedCategory !== "GYIIF Offline Competition" &&
-                      selectedCategory !== "GYIIF Offline + Full Pack" &&
-                      selectedCategory !== "GYIIF Offline + Medali" 
+                      selectedCategory !== "GYIIF Offline + Excursion"
                     }
                   >
                     Buat Tautan Pembayaran
@@ -625,7 +639,12 @@ function IndoensiaParticipants() {
                     className="form-control"
                     placeholder="Masukkan Judul Proyek Anda"
                     required
+                    value={selectedMaxProject}
+                    onChange={handleInputProjectChange}
                   ></textarea>
+                  <p>
+                    {selectedMaxProject.length} / {maxProjectChars} karakter
+                  </p>
                 </div>
                 <div className="input-box">
                   <label for="CATEGORIES" className="form-label">
@@ -640,16 +659,18 @@ function IndoensiaParticipants() {
                     required
                   >
                     <option value="">--Pilih Kategori--</option>
-                    <option value="Waste treatment">Waste treatment</option>
-                    <option value="IoT and Its Applications">
-                      IoT and Its Applications
+                    <option value="Social Science">Social Science</option>
+                    <option value="Environmental Science">
+                      Environmental Science
                     </option>
-                    <option value="Functional Food">Functional Food</option>
-                    <option value="Energy">Energy</option>
-                    <option value="Research on Children with Special Needs">
-                      Research on Children with Special Needs
+                    <option value="Innovation Science">
+                      Innovation Science
                     </option>
-                    <option value="Entrepreneurship">Entrepreneurship</option>
+                    <option value="Life Sciences">Life Sciences</option>
+                    <option value="Engineering and Technology">
+                      Engineering and Technology
+                    </option>
+                    <option value="Physics">Physics</option>
                   </select>
                 </div>
                 <div className="input-box">
@@ -762,8 +783,8 @@ function IndoensiaParticipants() {
               {/* GENERAL INFORMATION END */}
               {/* GENERAL INFORMATION END */}
 
-              <div className="button">
-                <input type="submit" value="Kirim" />
+              <div className="buttonindo">
+                <input type="submit" value="KIRIM" />
               </div>
             </form>
           </div>

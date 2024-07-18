@@ -828,7 +828,7 @@ margin-bottom: 5px;
 
 .registration-section .form-label{
 color: var(--warna-tulisan);
-font-size: clamp(14px, 2vw, 24px);  ;
+font-size: clamp(16px, 2vw, 24px);
 }
 .registration-section .gam{
 display: flex;
@@ -859,7 +859,7 @@ transition: all 0.3s ease;
 }
 
 .registration-section .user-details .input-box p {
-font-size: 12px;
+font-size: 11px;
 }
 
 .registration-section .container .content .sub {
@@ -927,7 +927,21 @@ height: 100%;
 width: 100%;
 border-radius: 5px;
 border: none;
-color: var(--warna-tulisan);
+color: var(--warna-tulisan2);
+font-size: 20px;
+font-weight: bold;
+letter-spacing: 1px;
+cursor: pointer;
+transition: all 0.3s ease;
+background: var(--warna-primary);
+}
+
+.registration-section form .buttonindo input {
+height: 100%;
+width: 100%;
+border-radius: 5px;
+border: none;
+color: var(--warna-tulisan2);
 font-size: 20px;
 font-weight: bold;
 letter-spacing: 1px;
@@ -935,6 +949,13 @@ cursor: pointer;
 transition: all 0.3s ease;
 background: var(--warna-primary);
 display: none;
+}
+
+.registration-section form .button input:hover{
+  box-shadow: 12px 12px #262521;
+  background-color: var(--warna-sekunder) !important;
+  border-color: #262521;
+  transition: .3s;
 }
 
 .registration-section form .button input:hover {

@@ -69,7 +69,7 @@ const Contact = ({ contactInfo }) => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Jalan Kemang RT. 3 RW. 06 Pasir Putih, Kecamatan Sawangan,
+                  Jalan Kemang RT. 03 RW. 06 Pasir Putih, Kecamatan Sawangan,
                   Kota Depok, Jawa Barat 16511, Indonesia.
                 </a>
               </span>

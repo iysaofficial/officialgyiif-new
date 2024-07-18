@@ -6,7 +6,57 @@ import { useState, useEffect } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Indonesiaparticipants() {
+export default function Internationalparticipants() {
+  const [selectedMaxNamaLengkap, setselectedMaxNamaLengkap] = useState("");
+  const maxNameChars = 180; // batasan maksimal karakter
+  const [selectedMaxProject, setselectedMaxProject] = useState("");
+  const maxProjectChars = 160; // batasan maksimal karakter
+
+  const handleInputNameChange = (e) => {
+    const { value } = e.target;
+    if (value.length <= maxNameChars) {
+      setselectedMaxNamaLengkap(value);
+    }
+  };
+
+  const handleInputProjectChange = (e) => {
+    const { value } = e.target;
+    if (value.length <= maxProjectChars) {
+      setselectedMaxProject(value);
+    }
+  };
+
+  useEffect(() => {
+    const scriptURL =
+      "https://script.google.com/macros/s/AKfycbzVAfpmxr87x5HmnEkylXr3jYznzBdMM_o4fiNiqOGeg9E3QLG6n7hIOPjOzQnQxE1g/exec";
+
+    const form = document.forms["regist-form"];
+
+    if (form) {
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+          await fetch(scriptURL, { method: "POST", body: new FormData(form) });
+
+          // Setelah berhasil mengirim data, arahkan pengguna ke halaman lain
+          window.location.href = "/"; // Gantikan dengan URL halaman sukses Anda
+        } catch (error) {
+          console.error("Error saat mengirim data:", error);
+          // Handle error jika diperlukan
+        }
+
+        form.reset();
+      };
+
+      form.addEventListener("submit", handleSubmit);
+
+      // Membersihkan event listener saat komponen dilepas
+      return () => {
+        form.removeEventListener("submit", handleSubmit);
+      };
+    }
+  }, []);
+
   return (
     <>
       <Navigation />
@@ -18,26 +68,21 @@ export default function Indonesiaparticipants() {
             <br />
             <br />
             <h4>
-              HELLO GYIIF 2024 PARTICIPANTS, Please consider the following
+              HELLO GYIIF 2025 PARTICIPANTS, Please consider the following
               information before filling out the registration form :
             </h4>
             <br />
             <p>
               1.&nbsp; &nbsp; Please fill in the required data correctly and
-              make sure there are no writing errors. Please also make sure that
-              the data submitted is fixed and there will be no changes.
+              ensure there are no writing errors. Also make sure that the data
+              submitted is final and has not changed.
             </p>
             <p>
               2.&nbsp; &nbsp;After making sure the data is correct, you can
-              click send. If we have received your data, there will be a green
-              notification as follows above the submit button :{" "}
+              click <span className="fw-bold">&quot;SUBMIT BUTTON&quot;</span>. If the data has been successfully submitted, you will be moved to another page.
             </p>
             <p>
-              3.&nbsp; &nbsp;Data has been successfully submitted registration
-              data will be sent to the team leader&apos;s email address, and the file
-              will be validated by our team. Please be patient and wait up to 3
-              days after the registration time. Letter of Acceptance (LOA) will
-              be sent to the team leader&apos;s email address.
+              3.&nbsp; &nbsp;There will be an information  email that the registration has been received sent to the team leader&apos;s email address, and the file will be validated by our team. Please be patient and wait for a maximum of 3 days after the registration time, the Letter of Acceptance (LOA) will be sent to the team leader&apos;s email address.
             </p>
 
             <form name="regist-form">
@@ -102,9 +147,10 @@ export default function Indonesiaparticipants() {
                   <label>
                     <p>
                       Noted: Input the name of the team leader and team members
-                      with the team leader&apos;s name at the beginning, with the
-                      following format:
+                      with the team leader&apos;s name at the beginning, with
+                      the following format:
                     </p>
+                    <p>Note: maximum 5 members + 1 team leader</p>
                     <h6>Kamal Putra</h6>
                     <h6>Ranu Ramadhan</h6>
                     <h6>Irsyad Zaidan</h6>
@@ -116,13 +162,21 @@ export default function Indonesiaparticipants() {
                     class="form-control"
                     placeholder="Input Name of Leader & Member Team"
                     required
+                    value={selectedMaxNamaLengkap}
+                    onChange={handleInputNameChange}
                   ></textarea>
+                  <p>
+                    {selectedMaxNamaLengkap.length} / {maxNameChars} character
+                  </p>
                 </div>
                 <div class="input-box">
                   <label for="LEADER_WHATSAPP" class="form-label">
                     Leader WhatsApp Number
+                    <p>
+                      Please write with phone code, example : (phone code)
+                      (your number) +62 8177091xxxx
+                    </p>
                   </label>
-                  <p>Please write with phone code, example : +6281770914129</p>
                   <input
                     type="number"
                     id="LEADER_WHATSAPP"
@@ -139,8 +193,8 @@ export default function Indonesiaparticipants() {
                   <label>
                     <p>
                       Notes: Please fill in the email correctly, LOA submissions
-                      will be sent via the team leader&apos;s email address filled
-                      in.
+                      will be sent via the team leader&apos;s email address
+                      filled in.
                     </p>
                   </label>
                   <input
@@ -156,7 +210,7 @@ export default function Indonesiaparticipants() {
 
               {/* DATA SEKOLAH START */}
               {/* DATA SEKOLAH START */}
-              <h1>DATA SEKOLAH</h1>
+              <h1>SCHOOL DATA</h1>
               <h1 className="garis-bawah"></h1>
               <div class="user-details">
                 <div class="input-box">
@@ -165,9 +219,14 @@ export default function Indonesiaparticipants() {
                   </label>
                   <label>
                     <p>
-                      Noted: Input the name of the school with the format in the
-                      order of the names of the chairman and team members from
-                      each school, with the format as follows:
+                      Noted: if all members are in the same institution, write
+                      only 1 institution.
+                    </p>
+                    <p>
+                      If the members are not in the same institution, enter the
+                      name of the school with the format in the order of the
+                      name of the team leader and team members from each school,
+                      with the following format:
                     </p>
                     <h6>SMA CERIA</h6>
                     <h6>HAPPY HIGH SCHOOL</h6>
@@ -182,21 +241,32 @@ export default function Indonesiaparticipants() {
                     required
                   ></textarea>
                 </div>
-
                 <div class="input-box">
-                  <label for="COUNTRY" class="form-label">
-                    Country
+                  <label for="GRADE" class="form-label">
+                    Grade{" "}
                   </label>
-                  <input
+                  <select
                     type="text"
-                    id="COUNTRY"
-                    name="COUNTRY"
+                    id="GRADE"
+                    name="GRADE"
                     class="form-control"
-                    placeholder="Your Country "
+                    placeholder="Choose Grade"
                     required
-                  />
+                  >
+                    <option value="">--Choose Your Grade--</option>
+                    <option value="Elementery">Elementery</option>
+                    <option value="Junior High School">
+                      Junior High School
+                    </option>
+                    <option value="Senior High School">
+                      Senior High School
+                    </option>
+                    <option value="University">University</option>
+                    <option value="Public (teachers, researchers, lecturer)">
+                      Public (teachers, researchers, lecturer)
+                    </option>
+                  </select>
                 </div>
-
                 <div class="input-box">
                   <label for="PHONE_CODE" class="form-label">
                     Phone Code
@@ -274,38 +344,24 @@ export default function Indonesiaparticipants() {
                     <option value="Zimbabwe +263">Zimbabwe +263</option>
                   </select>
                 </div>
-
                 <div class="input-box">
-                  <label for="GRADE" class="form-label">
-                    Grade{" "}
+                  <label for="COUNTRY" class="form-label">
+                    Country
                   </label>
-                  <select
+                  <input
                     type="text"
-                    id="GRADE"
-                    name="GRADE"
+                    id="COUNTRY"
+                    name="COUNTRY"
                     class="form-control"
-                    placeholder="Choose Grade"
+                    placeholder="Your Country "
                     required
-                  >
-                    <option value="">--Choose Your Grade--</option>
-                    <option value="Elementery">Elementery</option>
-                    <option value="Junior High School">
-                      Junior High School
-                    </option>
-                    <option value="Senior High School">
-                      Senior High School
-                    </option>
-                    <option value="University">University</option>
-                    <option value="Public (teachers, researchers, lecturer)">
-                      Public (teachers, researchers, lecturer)
-                    </option>
-                  </select>
+                  />
                 </div>
               </div>
 
               {/* DATA PEMBIMBING START */}
               {/* DATA PEMBIMBING START */}
-              <h1>DATA PEMBIMBING</h1>
+              <h1>SUPERVISOR DATA</h1>
               <h1 className="garis-bawah"></h1>
               <div className="user-details">
                 <div class="input-box">
@@ -324,6 +380,10 @@ export default function Indonesiaparticipants() {
                 <div class="input-box">
                   <label for="WHATSAPP_NUMBER_SUPERVISOR" class="form-label">
                     Teacher/Supervisor WhatsApp Number
+                    <p>
+                      Please write with phone code, example : (phone code)
+                      (your number) +62 8177091xxxx
+                    </p>
                   </label>
                   <input
                     type="number"
@@ -351,19 +411,10 @@ export default function Indonesiaparticipants() {
               {/* DATA PEMBIMBING END */}
               {/* DATA PEMBIMBING END */}
 
-              {/* INVOICE START */}
-              {/* INVOICE START */}
-              <div className="">
-                <h1>INVOICE</h1>
-                <h1 className="garis-bawah"></h1>
-              </div>
-              {/* INVOICE END */}
-              {/* INVOICE END */}
-
               {/* DETAIL PROJECT START */}
               {/* DETAIL PROJECT START */}
               <div className="">
-                <h1>DETAIL PROYEK</h1>
+                <h1>DETAIL PROJECT</h1>
                 <h1 className="garis-bawah"></h1>
               </div>
               <div className="user-details">
@@ -378,39 +429,38 @@ export default function Indonesiaparticipants() {
                     class="form-control"
                     placeholder="Input Your Project Title"
                     required
+                    value={selectedMaxProject}
+                    onChange={handleInputProjectChange}
                   ></textarea>
+                  <p>
+                    {selectedMaxProject.length} / {maxProjectChars} karakter
+                  </p>
                 </div>
-                <div class="input-box">
-                  <label for="CATEGORIES" class="form-label">
+                <div className="input-box">
+                  <label for="CATEGORIES" className="form-label">
                     Categories
-                  </label>
-                  <label>
-                    <p>
-                      Notes: For the category labeled &quot;PUBLIC&quot; it is intended
-                      for Teachers, Researchers and Lecturers
-                    </p>
                   </label>
                   <select
                     type="text"
                     id="CATEGORIES"
                     name="CATEGORIES"
-                    class="form-control"
+                    className="form-control"
                     placeholder="--Choose-- "
                     required
                   >
                     <option value="">--Choose Categories--</option>
                     <option value="Social Science">Social Science</option>
-                    <option value="Innovative Science">
-                      Innovative Science
-                    </option>
                     <option value="Environmental Science">
                       Environmental Science
                     </option>
-                    <option value="Engineering">Engineering</option>
-                    <option value="Education">Education (Public)</option>
-                    <option value="Classroom Action Research">
-                      Classroom Action Research (Public)
+                    <option value="Innovation Science">
+                      Innovation Science
                     </option>
+                    <option value="Life Sciences">Life Sciences</option>
+                    <option value="Engineering and Technology">
+                      Engineering and Technology
+                    </option>
+                    <option value="Physics">Physics</option>
                   </select>
                 </div>
                 <div class="input-box">
@@ -451,14 +501,14 @@ export default function Indonesiaparticipants() {
               {/* GENERAL INFORMATION START */}
               {/* GENERAL INFORMATION START */}
               <div className="">
-                <h1>INFORMASI UMUM</h1>
+                <h1>GENERAL INFORMATION</h1>
                 <h1 className="garis-bawah"></h1>
               </div>
               <div className="user-details">
                 <div class="input-box">
                   <label for="SOSMED" class="form-label">
-                    If you don&apos;t have whatsapp number, please write down your
-                    social media account. (Ex: Instagram/FB/Telegram/Line)
+                    If you don&apos;t have whatsapp number, please write down
+                    your social media account. (Ex: Instagram/FB/Telegram/Line)
                   </label>
                   <label>
                     <p>
@@ -479,7 +529,7 @@ export default function Indonesiaparticipants() {
 
                 <div class="input-box">
                   <label for="INFORMATION_RESOURCES" class="form-label">
-                    GYIIF 2024 Competition Information Resources
+                    GYIIF 2025 Competition Information Resources
                   </label>
                   <select
                     type="text"
@@ -489,7 +539,9 @@ export default function Indonesiaparticipants() {
                     placeholder="--Choose Information Resources-- "
                     required
                   >
-                    <option value="">--Pilih Sumber Informasi--</option>
+                    <option value="">
+                      --Select the Source of Information--
+                    </option>
                     <option value="IYSA Instagram">IYSA Instagram</option>
                     <option value="GYIIF Instagram">GYIIF Instagram</option>
                     <option value="Supervisor/School">Supervisor/School</option>
@@ -504,8 +556,8 @@ export default function Indonesiaparticipants() {
                   </select>
                 </div>
               </div>
-              <div class="button">
-                <input type="submit" value="Submit" />
+              <div class="button ">
+                <input type="submit" value="SUBMIT FORM" />
               </div>
             </form>
           </div>
