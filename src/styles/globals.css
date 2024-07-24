@@ -957,11 +957,13 @@ display: none;
   border-color: #262521;
   transition: .3s;
 }
-
-.registration-section form .button input:hover {
-background: var(--warna-primary);
-color: var(--warna-tulisan2);
+.registration-section form .buttonindo input:hover{
+  box-shadow: 12px 12px #262521;
+  background-color: var(--warna-sekunder) !important;
+  border-color: #262521;
+  transition: .3s;
 }
+
 
 @media (max-width: 426px) {
 .registration-section form .user-details .input-box {

@@ -79,10 +79,17 @@ export default function Internationalparticipants() {
             </p>
             <p>
               2.&nbsp; &nbsp;After making sure the data is correct, you can
-              click <span className="fw-bold">&quot;SUBMIT BUTTON&quot;</span>. If the data has been successfully submitted, you will be moved to another page.
+              click <span className="fw-bold">&quot;SUBMIT FORM&quot;</span> button once.
+              If the data has been successfully submitted, you will be moved to
+              another page.
             </p>
             <p>
-              3.&nbsp; &nbsp;There will be an information  email that the registration has been received sent to the team leader&apos;s email address, and the file will be validated by our team. Please be patient and wait for a maximum of 3 days after the registration time, the Letter of Acceptance (LOA) will be sent to the team leader&apos;s email address.
+              3.&nbsp; &nbsp;There will be an information email that the
+              registration has been received sent to the team leader&apos;s
+              email address, and the file will be validated by our team. Please
+              be patient and wait for a maximum of 3 days after the registration
+              time, the Letter of Acceptance (LOA) will be sent to the team
+              leader&apos;s email address.
             </p>
 
             <form name="regist-form">
@@ -173,8 +180,8 @@ export default function Internationalparticipants() {
                   <label for="LEADER_WHATSAPP" class="form-label">
                     Leader WhatsApp Number
                     <p>
-                      Please write with phone code, example : (phone code)
-                      (your number) +62 8177091xxxx
+                      Please write with phone code, example : (phone code) (your
+                      number) +62 8177091xxxx
                     </p>
                   </label>
                   <input
@@ -185,87 +192,6 @@ export default function Internationalparticipants() {
                     placeholder="Input Leader WhatsApp Number"
                     required
                   />
-                </div>
-                <div class="input-box">
-                  <label for="LEADER_EMAIL" class="form-label">
-                    Leader Email Address
-                  </label>
-                  <label>
-                    <p>
-                      Notes: Please fill in the email correctly, LOA submissions
-                      will be sent via the team leader&apos;s email address
-                      filled in.
-                    </p>
-                  </label>
-                  <input
-                    type="email"
-                    id="LEADER_EMAIL"
-                    name="LEADER_EMAIL"
-                    class="form-control"
-                    placeholder="Input Your Leader Email Address"
-                    required
-                  />
-                </div>
-              </div>
-
-              {/* DATA SEKOLAH START */}
-              {/* DATA SEKOLAH START */}
-              <h1>SCHOOL DATA</h1>
-              <h1 className="garis-bawah"></h1>
-              <div class="user-details">
-                <div class="input-box">
-                  <label for="NAMA_SEKOLAH" class="form-label">
-                    Name of School/University
-                  </label>
-                  <label>
-                    <p>
-                      Noted: if all members are in the same institution, write
-                      only 1 institution.
-                    </p>
-                    <p>
-                      If the members are not in the same institution, enter the
-                      name of the school with the format in the order of the
-                      name of the team leader and team members from each school,
-                      with the following format:
-                    </p>
-                    <h6>SMA CERIA</h6>
-                    <h6>HAPPY HIGH SCHOOL</h6>
-                    <h6>SMA TADIKA MESRA</h6>
-                  </label>
-                  <textarea
-                    type="text"
-                    id="NAMA_SEKOLAH"
-                    name="NAMA_SEKOLAH"
-                    class="form-control"
-                    placeholder="Input School Name of Leader & Member Team"
-                    required
-                  ></textarea>
-                </div>
-                <div class="input-box">
-                  <label for="GRADE" class="form-label">
-                    Grade{" "}
-                  </label>
-                  <select
-                    type="text"
-                    id="GRADE"
-                    name="GRADE"
-                    class="form-control"
-                    placeholder="Choose Grade"
-                    required
-                  >
-                    <option value="">--Choose Your Grade--</option>
-                    <option value="Elementery">Elementery</option>
-                    <option value="Junior High School">
-                      Junior High School
-                    </option>
-                    <option value="Senior High School">
-                      Senior High School
-                    </option>
-                    <option value="University">University</option>
-                    <option value="Public (teachers, researchers, lecturer)">
-                      Public (teachers, researchers, lecturer)
-                    </option>
-                  </select>
                 </div>
                 <div class="input-box">
                   <label for="PHONE_CODE" class="form-label">
@@ -345,6 +271,89 @@ export default function Internationalparticipants() {
                   </select>
                 </div>
                 <div class="input-box">
+                  <label for="LEADER_EMAIL" class="form-label">
+                    Leader Email Address
+                  </label>
+                  <label>
+                    <p>
+                      Notes: Please fill in the email correctly, LOA submissions
+                      will be sent via the team leader&apos;s email address
+                      filled in.
+                    </p>
+                  </label>
+                  <input
+                    type="email"
+                    id="LEADER_EMAIL"
+                    name="LEADER_EMAIL"
+                    class="form-control"
+                    placeholder="Input Your Leader Email Address"
+                    required
+                  />
+                </div>
+              </div>
+
+              {/* DATA SEKOLAH START */}
+              {/* DATA SEKOLAH START */}
+              <h1>SCHOOL DATA</h1>
+              <h1 className="garis-bawah"></h1>
+              <div class="user-details">
+                <div class="input-box">
+                  <label for="NAMA_SEKOLAH" class="form-label">
+                    Name of School/University
+                  </label>
+                  <label>
+                    <p>
+                      Noted: if all members are in the same institution, write
+                      only 1 institution.
+                    </p>
+                    <p>
+                      If the members are not in the same institution, enter the
+                      name of the school with the format in the order of the
+                      name of the team leader and team members from each school,
+                      with the following format:
+                    </p>
+                    <h6>SMA CERIA</h6>
+                    <h6>HAPPY HIGH SCHOOL</h6>
+                    <h6>SMA TADIKA MESRA</h6>
+                  </label>
+                  <textarea
+                    type="text"
+                    id="NAMA_SEKOLAH"
+                    name="NAMA_SEKOLAH"
+                    class="form-control"
+                    placeholder="Input School Name of Leader & Member Team"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+              <div className="user-details">
+                <div class="input-box">
+                  <label for="GRADE" class="form-label">
+                    Grade{" "}
+                  </label>
+                  <select
+                    type="text"
+                    id="GRADE"
+                    name="GRADE"
+                    class="form-control"
+                    placeholder="Choose Grade"
+                    required
+                  >
+                    <option value="">--Choose Your Grade--</option>
+                    <option value="Elementery">Elementery</option>
+                    <option value="Junior High School">
+                      Junior High School
+                    </option>
+                    <option value="Senior High School">
+                      Senior High School
+                    </option>
+                    <option value="University">University</option>
+                    <option value="Public (teachers, researchers, lecturer)">
+                      Public (teachers, researchers, lecturer)
+                    </option>
+                  </select>
+                </div>
+                <div class="input-box">
                   <label for="COUNTRY" class="form-label">
                     Country
                   </label>
@@ -381,8 +390,8 @@ export default function Internationalparticipants() {
                   <label for="WHATSAPP_NUMBER_SUPERVISOR" class="form-label">
                     Teacher/Supervisor WhatsApp Number
                     <p>
-                      Please write with phone code, example : (phone code)
-                      (your number) +62 8177091xxxx
+                      Please write with phone code, example : (phone code) (your
+                      number) +62 8177091xxxx
                     </p>
                   </label>
                   <input
@@ -556,7 +565,7 @@ export default function Internationalparticipants() {
                   </select>
                 </div>
               </div>
-              <div class="button ">
+              <div class="button">
                 <input type="submit" value="SUBMIT FORM" />
               </div>
             </form>

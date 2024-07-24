@@ -8,17 +8,16 @@ const inter = Inter({ subsets: ["latin"] });
 
 function IndoensiaParticipants() {
   const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedNamaLengkap, setSelectedNamaLengkap] = useState("");
   const [price, setPrice] = useState("");
   const [paymentUrl, setPaymentUrl] = useState("");
   const [uniqueId, setUniqueId] = useState(""); // Mengatur uniqueId ke state
+  const [selectedNamaLengkap, setSelectedNamaLengkap] = useState("");
+  const [selectEmailKetua, setselectEmailKetua] = useState("") // Menambah state untuk Email Ketua team
   const [phone, setPhone] = useState(""); // Menambah state untuk phone (Nomor WhatsApp)
+  const [selectNameSupervisor, setselectNameSupervisor] = useState("") // Menambah state untuk Name Supervisor team
+  const [selectPhoneSupervisor, setSelectPhoneSupervisor] = useState(""); // Menambah state untuk phone (Nomor WhatsApp)
+  const [selectEmailSupervisor, setselectEmailSupervisor] = useState("") // Menambah state untuk Email Supervisor team
   const adminFee = 4500; // Biaya admin tetap
-
-  const [selectedMaxNamaLengkap, setselectedMaxNamaLengkap] = useState("");
-  const maxNameChars = 180; // batasan maksimal karakter
-  const [selectedMaxProject, setselectedMaxProject] = useState("");
-  const maxProjectChars = 160; // batasan maksimal karakter
 
   const generateUniqueId = () => {
     const timestamp = new Date().getTime();
@@ -75,14 +74,18 @@ function IndoensiaParticipants() {
       selectedCategory !== "GYIIF Offline + Excursion"
     ) {
       alert(
-        "Anda harus memilih salah satu kategori untuk membuat tautan pembayaran."
+        "Anda harus memilih salah satu kategori."
       );
       return;
     }
 
     if (!selectedNamaLengkap) {
-      alert("Nama lengkap harus diisi untuk membuat tautan pembayaran.");
+      alert("Nama lengkap harus diisi.");
       return;
+    } else if (selectedNamaLengkap.length > 180){
+      alert(
+        "Maksimal Penulisan Nama Ketua dan Anggota 180 karakter"
+      )
     }
 
     if (!phone) {
@@ -95,6 +98,33 @@ function IndoensiaParticipants() {
         "Nomor telepon harus memiliki panjang antara 5 hingga 20 karakter."
       );
       return; // Menghentikan eksekusi fungsi jika panjang phone tidak sesuai
+    }
+
+    if (!selectEmailKetua) {
+      alert("Email Ketua harus diisi.");
+      return;
+    }
+
+    if (!selectNameSupervisor) {
+      alert("Nama Pembimbing harus diisi.");
+      return;
+    }
+
+    if (!selectPhoneSupervisor) {
+      alert(
+        "Nomor telepon Pembimbing tim harus diisi untuk membuat tautan pembayaran."
+      );
+      return; // Menghentikan eksekusi fungsi jika phone belum diisi
+    } else if (selectPhoneSupervisor.length < 5 || selectPhoneSupervisor.length > 20) {
+      alert(
+        "Nomor telepon pembimbing harus memiliki panjang antara 5 hingga 20 karakter."
+      );
+      return; // Menghentikan eksekusi fungsi jika panjang phone tidak sesuai
+    }
+
+    if (!selectEmailSupervisor) {
+      alert("Email Pembimbing harus diisi.");
+      return;
     }
 
     const newUniqueId = generateUniqueId(); // Menghasilkan uniqueId baru
@@ -129,7 +159,7 @@ function IndoensiaParticipants() {
       console.log("Response Data:", responseData);
       setPaymentUrl(responseData.payment_url);
 
-      const buttonInput = document.querySelector("form .button input");
+      const buttonInput = document.querySelector("form .buttonindo input");
       buttonInput.style.display = "block";
     } catch (error) {
       console.error("Error saat mengirim permintaan:", error);
@@ -203,20 +233,6 @@ function IndoensiaParticipants() {
     }
   }, []);
 
-  const handleInputNameChange = (e) => {
-    const { value } = e.target;
-    if (value.length <= maxNameChars) {
-      setselectedMaxNamaLengkap(value);
-    }
-  };
-
-  const handleInputProjectChange = (e) => {
-    const { value } = e.target;
-    if (value.length <= maxProjectChars) {
-      setselectedMaxProject(value);
-    }
-  };
-
   return (
     <>
       <Navigation />
@@ -237,15 +253,24 @@ function IndoensiaParticipants() {
               dikirim sudah final dan tidak mengalami perubahan.
             </p>
             <p>
-              2. Pastikan <span className="fw-bold">&quot;INVOICE ID&quot;</span> sudah terbuat agar tombol untuk <span className="fw-bold">&quot;KIRIM &quot;</span> data
-              bisa muncul.
+              2. Pastikan{" "}
+              <span className="fw-bold">&quot;INVOICE ID&quot;</span> sudah
+              terbuat agar tombol untuk{" "}
+              <span className="fw-bold">&quot;KIRIM &quot;</span> data bisa
+              muncul.
             </p>
             <p>
               3. Setelah memastikan data sudah benar, Anda dapat mengklik tombol
-              <span className="fw-bold"> &quot;KIRIM&quot;</span> cukup sekali saja. Jika data telah berhasil dikirimkan, Anda akan dipindahkan ke halaman lain.
+              <span className="fw-bold"> &quot;KIRIM&quot;</span> cukup sekali
+              saja. Jika data telah berhasil dikirimkan, Anda akan dipindahkan
+              ke halaman lain.
             </p>
             <p>
-              4. Akan ada email informasi bahwa pendaftaran telah diterima yang dikirimkan ke alamat email ketua tim, dan berkas akan divalidasi oleh tim kami. Mohon bersabar dan tunggu maksimal 3 hari setelah waktu pendaftaran, Letter of Acceptance (LOA) akan dikirimkan ke alamat email team leader.
+              4. Akan ada email informasi bahwa pendaftaran telah diterima yang
+              dikirimkan ke alamat email ketua tim, dan berkas akan divalidasi
+              oleh tim kami. Mohon bersabar dan tunggu maksimal 3 hari setelah
+              waktu pendaftaran, Letter of Acceptance (LOA) akan dikirimkan ke
+              alamat email team leader.
             </p>
             <br></br>
 
@@ -291,12 +316,9 @@ function IndoensiaParticipants() {
                     className="form-control"
                     placeholder="Masukan Nama Ketua & Anggota"
                     required
-                    value={selectedMaxNamaLengkap}
-                    onChange={handleInputNameChange}
+                    value={selectedNamaLengkap}
+                    onChange={(e) => setSelectedNamaLengkap(e.target.value)} // Menambahkan handler onChange
                   ></textarea>
-                  <p>
-                    {selectedMaxNamaLengkap.length} / {maxNameChars} karakter
-                  </p>
                 </div>
                 <div className="input-box">
                   <label htmlFor="LEADER_WHATSAPP" className="form-label">
@@ -304,7 +326,7 @@ function IndoensiaParticipants() {
                   </label>
                   <label>
                     <p>
-                      Harap tulis dengan kode telepon, contoh :  (kode negara)
+                      Harap tulis dengan kode telepon, contoh : (kode negara)
                       (nomor telepon) +62 81770914xxxx
                     </p>
                     <p>
@@ -341,6 +363,8 @@ function IndoensiaParticipants() {
                     className="form-control"
                     placeholder="Masukan Alamat Email Ketua Tim"
                     required
+                    value={selectEmailKetua}
+                    onChange={(e) => setselectEmailKetua(e.target.value)}
                   />
                 </div>
                 <div className="input-box">
@@ -473,6 +497,8 @@ function IndoensiaParticipants() {
                     className="form-control"
                     placeholder="Masukan Nama Guru/Pembimbing"
                     required
+                    value={selectNameSupervisor}
+                    onChange={(e) => setselectNameSupervisor(e.target.value)}
                   ></textarea>
                 </div>
 
@@ -484,8 +510,8 @@ function IndoensiaParticipants() {
                     Nomor WhatsApp Guru/Pembimbing
                   </label>
                   <label>
-                  Harap tulis dengan kode telepon, contoh :  (kode negara)
-                  (nomor telepon) +62 81770914xxx
+                    Harap tulis dengan kode telepon, contoh : (kode negara)
+                    (nomor telepon) +62 81770914xxx
                   </label>
                   <input
                     type="number"
@@ -494,6 +520,8 @@ function IndoensiaParticipants() {
                     className="form-control"
                     placeholder="Masukan Nomor WhatsApp Guru/Pembimbing"
                     required
+                    value={selectPhoneSupervisor}
+                    onChange={(e) => setSelectPhoneSupervisor(e.target.value)}
                   />
                 </div>
 
@@ -508,6 +536,8 @@ function IndoensiaParticipants() {
                     className="form-control"
                     placeholder="Alamat Email Guru/Pembimbing"
                     required
+                    value={selectEmailSupervisor}
+                    onChange={(e) => setselectEmailSupervisor(e.target.value)}
                   />
                 </div>
               </div>
@@ -639,12 +669,7 @@ function IndoensiaParticipants() {
                     className="form-control"
                     placeholder="Masukkan Judul Proyek Anda"
                     required
-                    value={selectedMaxProject}
-                    onChange={handleInputProjectChange}
                   ></textarea>
-                  <p>
-                    {selectedMaxProject.length} / {maxProjectChars} karakter
-                  </p>
                 </div>
                 <div className="input-box">
                   <label for="CATEGORIES" className="form-label">
