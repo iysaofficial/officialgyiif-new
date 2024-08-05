@@ -8,7 +8,7 @@ export const Mainhero = (props) => {
     <>
       <section
         className="mainhero-section"
-        // style={{ position: "relative", overflow: "hidden" }}
+      
       >
         <div className="text">
           <h2 style={{ color: "yellow", fontWeight: "bold" }}>
