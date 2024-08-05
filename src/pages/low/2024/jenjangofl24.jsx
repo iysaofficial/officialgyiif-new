@@ -43,7 +43,19 @@ const jenjangofl24 = () => {
                 </a>
               </Link>
               <Link
-                href="https://drive.google.com/file/d/1P7DvPc2OTVvAGmW9C6DHD5keBB4_5aRH/view?usp=sharing"
+                href="https://drive.google.com/file/d/1vIIXOodRouj7Hh2T5T-IFCUpwz6_hXEC/view?usp=sharing"
+                legacyBehavior
+              >
+                <a
+                  target="_blank"
+                  rel="noreferrer"
+                  className="btn btn-custom m-2"
+                >
+                  Senior High School
+                </a>
+              </Link>
+              <Link
+                href="https://drive.google.com/file/d/1PqCaeHQ11Z_VnrhgyT4eYn9tYEFIY8rr/view?usp=drive_link"
                 legacyBehavior
               >
                 <a
