@@ -182,56 +182,46 @@ function IndoensiaParticipants() {
     setSelectedCategory(e.target.value);
   };
 
-  const handleSubmitForm = async (e) => {
-    e.preventDefault();
-    const scriptURL =
-      "https://script.google.com/macros/s/AKfycbzmJFF_At7dHbSksEFc11YzcrwCqx8XsP2ui2UHtdESpW9MNXGwXaTUFeSxDvq1aRBa/exec";
-    const form = document.forms["regist-form"];
-
-    if (form) {
-      try {
-        await fetch(scriptURL, { method: "POST", body: new FormData(form) });
-        form.reset();
-        setSelectedCategory("");
-        setPrice("");
-        setPaymentUrl("");
-        setUniqueId("");
-      } catch (error) {
-        console.error("Error saat mengirim data:", error);
-      }
-    }
-  };
-
   useEffect(() => {
     const scriptURL =
       "https://script.google.com/macros/s/AKfycbzmJFF_At7dHbSksEFc11YzcrwCqx8XsP2ui2UHtdESpW9MNXGwXaTUFeSxDvq1aRBa/exec";
-
-    const form = document.forms["regist-form"];
-
-    if (form) {
-      const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-          await fetch(scriptURL, { method: "POST", body: new FormData(form) });
-
-          // Setelah berhasil mengirim data, arahkan pengguna ke halaman lain
-          window.location.href = "/"; // Gantikan dengan URL halaman sukses Anda
-        } catch (error) {
-          console.error("Error saat mengirim data:", error);
-          // Handle error jika diperlukan
-        }
-
-        form.reset();
-      };
-
-      form.addEventListener("submit", handleSubmit);
-
-      // Membersihkan event listener saat komponen dilepas
-      return () => {
-        form.removeEventListener("submit", handleSubmit);
-      };
-    }
-  }, []);
+     
+      const form = document.forms["regist-form"];
+      var buttonCounter = 0;
+      if (form) {
+        const handleSubmit = async (e) => {
+          e.preventDefault();
+  
+          // Pengecekan paymentUrl di dalam handleSubmit
+          if (!paymentUrl) {
+            alert("Invoice berhasil di buat!! silahkan tekan tombol 'KIRIM' di akhir formulir pendaftaran");
+            return; // Menghentikan pengiriman jika URL pembayaran belum ada
+          }
+  
+          if (buttonCounter == 0) {
+            try {
+              buttonCounter++;
+              await fetch(scriptURL, { method: "POST", body: new FormData(form) });
+  
+              // Setelah berhasil mengirim data, arahkan pengguna ke halaman lain
+              window.location.href = "/"; // Gantikan dengan URL halaman sukses Anda
+            } catch (error) {
+              console.error("Error saat mengirim data:", error);
+              // Handle error jika diperlukan
+            }
+          }
+  
+          form.reset();
+        };
+    
+        form.addEventListener("submit", handleSubmit);
+        
+        // Membersihkan event listener saat komponen dilepas
+        return () => {
+          form.removeEventListener("submit", handleSubmit);
+        };
+      }
+    }, [paymentUrl]); // Memastikan useEffect dijalankan ulang jika paymentUrl berubah
 
   return (
     <>
