@@ -31,20 +31,22 @@ export default function Internationalparticipants() {
       "https://script.google.com/macros/s/AKfycbzVAfpmxr87x5HmnEkylXr3jYznzBdMM_o4fiNiqOGeg9E3QLG6n7hIOPjOzQnQxE1g/exec";
 
     const form = document.forms["regist-form"];
+    var buttonCounter = 0;
 
     if (form) {
       const handleSubmit = async (e) => {
         e.preventDefault();
-        try {
-          await fetch(scriptURL, { method: "POST", body: new FormData(form) });
-
-          // Setelah berhasil mengirim data, arahkan pengguna ke halaman lain
-          window.location.href = "/"; // Gantikan dengan URL halaman sukses Anda
-        } catch (error) {
-          console.error("Error saat mengirim data:", error);
-          // Handle error jika diperlukan
+        if (buttonCounter == 0) {
+          try {
+            buttonCounter++;
+            await fetch(scriptURL, { method: "POST", body: new FormData(form) });
+            // Setelah berhasil mengirim data, arahkan pengguna ke halaman lain
+            window.location.href = "/homeregist"; // Gantikan dengan URL halaman sukses Anda
+          } catch (error) {
+            console.error("Error saat mengirim data:", error);
+            // Handle error jika diperlukan
+          }
         }
-
         form.reset();
       };
 

@@ -188,6 +188,7 @@ function IndoensiaParticipants() {
      
       const form = document.forms["regist-form"];
       var buttonCounter = 0;
+      
       if (form) {
         const handleSubmit = async (e) => {
           e.preventDefault();
