@@ -12,13 +12,13 @@ export const Mainhero = (props) => {
       >
         <div className="text">
           <h2 style={{ color: "yellow", fontWeight: "bold" }}>
-            COMING SOON 2025
+            OPEN REGISTRATION 2025
           </h2>
           <h2 style={{ color: "white" }}>
             GLOBAL YOUTH INVENTION AND INNOVATION FAIR
           </h2>
           <Link href="/homeregist" legacyBehavior>
-            <a className="btn btn-primary btn-action">Link Registration</a>
+            <a className="btn btn-custom btn-action">Click Here to Registration!!</a>
           </Link>
         </div>
         <ParticlesBg

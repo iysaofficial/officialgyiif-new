@@ -81,6 +81,14 @@ const Contact = ({ contactInfo }) => {
                 <i className="fa fa-phone"></i> Phone
               </span>
               <a
+                href="https://api.whatsapp.com/send/?phone=6288213248890&text&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                0882 1324 8890
+              </a>
+              <br />
+              <a
                 href="https://api.whatsapp.com/send/?phone=6281770914129&text&type=phone_number&app_absent=0"
                 target="_blank"
                 rel="noopener noreferrer"
