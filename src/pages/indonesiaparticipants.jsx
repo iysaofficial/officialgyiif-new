@@ -39,7 +39,10 @@ export default function Internationalparticipants() {
         if (buttonCounter == 0) {
           try {
             buttonCounter++;
-            await fetch(scriptURL, { method: "POST", body: new FormData(form) });
+            await fetch(scriptURL, {
+              method: "POST",
+              body: new FormData(form),
+            });
             // Setelah berhasil mengirim data, arahkan pengguna ke halaman lain
             window.location.href = "/homeregist"; // Gantikan dengan URL halaman sukses Anda
           } catch (error) {
@@ -75,25 +78,25 @@ export default function Internationalparticipants() {
             </h4>
             <br />
             <p>
-            1. Mohon mengisi data yang diperlukan dengan benar dan memastikan
+              1. Mohon mengisi data yang diperlukan dengan benar dan memastikan
               tidak ada kesalahan penulisan. Pastikan juga bahwa data yang
               dikirim sudah final dan tidak mengalami perubahan.
             </p>
-            <p>
+            {/* <p>
             2. Pastikan{" "}
               <span className="fw-bold">&quot;INVOICE ID&quot;</span> sudah
               terbuat agar tombol untuk{" "}
               <span className="fw-bold">&quot;KIRIM &quot;</span> data bisa
               muncul.
-            </p>
+            </p> */}
             <p>
-            3. Setelah memastikan data sudah benar, Anda dapat mengklik tombol
+              2. Setelah memastikan data sudah benar, Anda dapat mengklik tombol
               <span className="fw-bold"> &quot;KIRIM&quot;</span> cukup sekali
               saja. Jika data telah berhasil dikirimkan, Anda akan dipindahkan
               ke halaman lain.
             </p>
             <p>
-              4. Akan ada email informasi bahwa pendaftaran telah diterima yang
+              3. Akan ada email informasi bahwa pendaftaran telah diterima yang
               dikirimkan ke alamat email ketua tim, dan berkas akan divalidasi
               oleh tim kami. Mohon bersabar dan tunggu maksimal 3 hari setelah
               waktu pendaftaran, Letter of Acceptance (LOA) akan dikirimkan ke
@@ -135,14 +138,8 @@ export default function Internationalparticipants() {
                     <option value="Online Competition">
                       Online Competition
                     </option>
-                    <option value="Online Competition + Certificate and Medal">
-                      Online Competition + Certificate and Medal
-                    </option>
                     <option value="Offline Competition">
                       Offline Competition
-                    </option>
-                    <option value="Offline Competition + Full Package">
-                      Offline Competition + Full Package
                     </option>
                     <option value="Offline Competition + Excursion">
                       Offline Competition + Excursion
@@ -176,7 +173,7 @@ export default function Internationalparticipants() {
                     value={selectedMaxNamaLengkap}
                     onChange={handleInputNameChange}
                   ></textarea>
-                   <p>
+                  <p>
                     {selectedMaxNamaLengkap.length} / {maxNameChars} character
                   </p>
                 </div>
@@ -342,9 +339,9 @@ export default function Internationalparticipants() {
               <h1>DATA PEMBIMBING</h1>
               <h1 className="garis-bawah"></h1>
               <div className="user-details">
-              <div class="input-box">
+                <div class="input-box">
                   <label for="NAME_SUPERVISOR" class="form-label">
-                  Nama Guru/Pembimbing
+                    Nama Guru/Pembimbing
                   </label>
                   <textarea
                     type="text"
@@ -393,8 +390,6 @@ export default function Internationalparticipants() {
               </div>
               {/* DATA PEMBIMBING END */}
               {/* DATA PEMBIMBING END */}
-
-              
 
               {/* DETAIL PROJECT START */}
               {/* DETAIL PROJECT START */}
