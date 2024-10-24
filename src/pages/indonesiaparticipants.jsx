@@ -413,7 +413,12 @@ export default function Internationalparticipants() {
                     className="form-control"
                     placeholder="Masukkan Judul Proyek Anda"
                     required
+                    value={selectedMaxProject}
+                    onChange={handleInputProjectChange}
                   ></textarea>
+                  <p>
+                    {selectedMaxProject.length} / {maxProjectChars} character
+                  </p>
                 </div>
                 <div className="input-box">
                   <label for="CATEGORIES" className="form-label">
