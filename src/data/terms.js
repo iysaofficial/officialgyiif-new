@@ -13,9 +13,6 @@ export const indonesiaTerms = (
           Inggris untuk seluruh persyaratan dokumen yang dibutuhkan)
         </li>
         <li>
-          Judul penelitian hanya boleh disertakan dalam lomba maksimal 2 kali.
-        </li>
-        <li>
           Keputusan panitia terkait hal ini bersifat final dan tidak dapat
           diganggu gugat.
         </li>
@@ -27,7 +24,6 @@ export const indonesiaTerms = (
           poster) setelah dua kali pengingat akan dianggap mengundurkan diri
           secara otomatis.
         </li>
-        <li>Judul penelitian hanya boleh disertakan dalam lomba maksimal 2 kali.</li>
         <li>
           Peserta wajib menggunakan judul dan extended abstract yang sesuai dengan
           kategori yang diikuti. (Peserta internasional, wajib menggunakan bahasa
@@ -76,10 +72,6 @@ export const indonesiaTerms = (
           use English for all required documents)
         </li>
         <li>
-          The research title can only be included in the competition a maximum of 2
-          times.
-        </li>
-        <li>
           The committee&apos;s decision regarding this matter is final and cannot be
           contested.
         </li>
@@ -89,10 +81,6 @@ export const indonesiaTerms = (
         <li>
           Participants who do not submit the required files (extended abstract,
           poster) after two reminders will be considered automatically resigned.
-        </li>
-        <li>
-          The research title can only be included in the competition a maximum of 2
-          times.
         </li>
         <li>
           Participants must use titles and extended abstracts that are in accordance
