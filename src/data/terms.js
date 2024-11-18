@@ -80,7 +80,7 @@ export const indonesiaTerms = (
           times.
         </li>
         <li>
-          The committee's decision regarding this matter is final and cannot be
+          The committee&apos;s decision regarding this matter is final and cannot be
           contested.
         </li>
       </ol>
@@ -120,7 +120,7 @@ export const indonesiaTerms = (
           concerned will be declared forfeited.
         </li>
         <li>
-          The committee's decision regarding this matter is final and cannot be
+          The committee&apos;s decision regarding this matter is final and cannot be
           contested.
         </li>
       </ol>
