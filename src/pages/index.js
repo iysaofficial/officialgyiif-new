@@ -10,6 +10,7 @@ import Services from "@/components/services";
 import Afterevent from "@/components/afterevent";
 import Contact from '@/components/contact';
 import { Footer } from "@/components/footer";
+import { Timevenue } from "@/components/timevenue";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,6 +26,7 @@ export default function Home({ data }) {
       <Mainhero />
       <Organized />
       <About />
+      <Timevenue />
       <Process />
       <Services />
       <Afterevent />
