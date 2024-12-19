@@ -17,7 +17,7 @@ export const Mainhero = (props) => {
           <h2 style={{ color: "white" }}>
             GLOBAL YOUTH INVENTION AND INNOVATION FAIR
           </h2>
-          <Link href="/homeregist" legacyBehavior>
+          <Link href="/" legacyBehavior>
             <a className="btn btn-custom btn-action m-2">Close Registration!!</a>
           </Link>
           <Link href="https://drive.google.com/file/d/1HAN-QQHTbSCOuFNdYL-V9x4kikElmKTd/view?usp=sharing" legacyBehavior>
