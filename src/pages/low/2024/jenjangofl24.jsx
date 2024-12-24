@@ -43,7 +43,7 @@ const jenjangofl24 = () => {
                 </a>
               </Link>
               <Link
-                href="https://drive.google.com/file/d/1vIIXOodRouj7Hh2T5T-IFCUpwz6_hXEC/view?usp=sharing"
+                href="https://drive.google.com/file/d/1PqCaeHQ11Z_VnrhgyT4eYn9tYEFIY8rr/view?usp=sharing"
                 legacyBehavior
               >
                 <a
