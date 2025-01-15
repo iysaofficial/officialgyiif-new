@@ -123,6 +123,14 @@ const Navigation = () => {
                     }`}
                   >
                     <Link
+                      href="https://drive.google.com/drive/folders/1DZmHgSOGYVQ4sLlM_A0WDsfrzh-9Daoz"
+                      legacyBehavior
+                    >
+                      <a className="dropdown-item" target="_blank">
+                        Gallery 2025
+                      </a>
+                    </Link>
+                    <Link
                       href="https://drive.google.com/drive/folders/1v7k8qwGLENT3xXQHNN5yDR2dq6POKUaR"
                       legacyBehavior
                     >
@@ -148,12 +156,34 @@ const Navigation = () => {
                 </Link>
               </ul>
             </div>
+              <div className="nav-item dropdown">
+                <a
+                  className="nav-link dropdown-toggle pointer"
+                  onClick={() => handleDropdownToggle("e-certificate")}
+                >
+                  E-Certificate
+                </a>
+                <div
+                  className={`dropdown-menu${
+                    openDropdown === "e-certificate" ? " show" : ""
+                  }`}
+                >
+                  <Link
+                    href="https://drive.google.com/drive/folders/1ms7eiyAe0nxwnZ7pWhbDzbpjOn4AUhbr"
+                    legacyBehavior
+                  >
+                    <a className="dropdown-item" target="_blank">
+                      E-Certificate 2025
+                    </a>
+                  </Link>
+                </div>
+              </div>
             <div className="ms-lg-3">
               {/* <Link href="/" legacyBehavior>
                 <a className="btn btn-primary btn-action" target="_blank">
-                  Buku Panduan
+                Buku Panduan
                 </a>
-              </Link> */}
+                </Link> */}
             </div>
           </div>
         </div>

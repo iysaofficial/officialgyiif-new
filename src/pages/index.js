@@ -26,7 +26,7 @@ export default function Home({ data }) {
       <Mainhero />
       <Organized />
       <About />
-      <Timevenue />
+      {/* <Timevenue /> */}
       <Process />
       <Services />
       <Afterevent />

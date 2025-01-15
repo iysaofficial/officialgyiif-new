@@ -17,7 +17,7 @@ export default function Document() {
 
         {/* FONT AWESOME */}
         <Script
-          src="https://kit.fontawesome.com/c788371d84.js"
+          src="https://kit.fontawesome.com/9681094862.js"
           crossOrigin="anonymous"
           strategy="lazyOnload"
         />
