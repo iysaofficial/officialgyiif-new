@@ -101,6 +101,14 @@ const Navigation = () => {
                     }`}
                   >
                     <Link
+                      href="https://drive.google.com/drive/folders/1yXh_5j8BQNltjNOXrhFTlCQfLUnPqEbw?usp=sharing"
+                      legacyBehavior
+                    >
+                      <a className="dropdown-item" target="_blank">
+                        Curation 2025
+                      </a>
+                    </Link>
+                    <Link
                       href="https://drive.google.com/drive/folders/1ZykbgV1R2M9ILRT1QUn4RWCwcWjpsQVN"
                       legacyBehavior
                     >
@@ -164,28 +172,28 @@ const Navigation = () => {
                 </Link>
               </ul>
             </div>
-              <div className="nav-item dropdown">
-                <a
-                  className="nav-link dropdown-toggle pointer"
-                  onClick={() => handleDropdownToggle("e-certificate")}
+            <div className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle pointer"
+                onClick={() => handleDropdownToggle("e-certificate")}
+              >
+                E-Certificate
+              </a>
+              <div
+                className={`dropdown-menu${
+                  openDropdown === "e-certificate" ? " show" : ""
+                }`}
+              >
+                <Link
+                  href="https://drive.google.com/drive/folders/1ms7eiyAe0nxwnZ7pWhbDzbpjOn4AUhbr"
+                  legacyBehavior
                 >
-                  E-Certificate
-                </a>
-                <div
-                  className={`dropdown-menu${
-                    openDropdown === "e-certificate" ? " show" : ""
-                  }`}
-                >
-                  <Link
-                    href="https://drive.google.com/drive/folders/1ms7eiyAe0nxwnZ7pWhbDzbpjOn4AUhbr"
-                    legacyBehavior
-                  >
-                    <a className="dropdown-item" target="_blank">
-                      E-Certificate 2025
-                    </a>
-                  </Link>
-                </div>
+                  <a className="dropdown-item" target="_blank">
+                    E-Certificate 2025
+                  </a>
+                </Link>
               </div>
+            </div>
             <div className="ms-lg-3">
               {/* <Link href="/" legacyBehavior>
                 <a className="btn btn-primary btn-action" target="_blank">
