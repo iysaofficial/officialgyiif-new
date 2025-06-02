@@ -49,7 +49,7 @@ const Navigation = () => {
                     className="nav-link dropdown-toggle pointer"
                     onClick={() => handleDropdownToggle("mediaCoverage")}
                   >
-                    Media Coverage
+                    Media
                   </a>
                   <div
                     className={`dropdown-menu${
@@ -57,7 +57,7 @@ const Navigation = () => {
                     }`}
                   >
                     <Link href="/news/listnews" legacyBehavior>
-                      <a className="dropdown-item">News</a>
+                      <a className="dropdown-item">News from Media</a>
                     </Link>
                     <Link
                       href="https://drive.google.com/file/d/1i-rGeT9hSKNeAWFjimEVL5BBVHyMqhir/view?usp=sharing"
