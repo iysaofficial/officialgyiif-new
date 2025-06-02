@@ -4,12 +4,12 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 const galleryImages = [
-  "/assets/img/slider/1.jpg",
-  "/assets/img/slider/2.jpg",
-  "/assets/img/slider/3.jpg",
-  "/assets/img/slider/4.jpg",
-  "/assets/img/slider/5.jpg",
-  "/assets/img/slider/6.jpg",
+  "/assets/img/slider/1.png",
+  "/assets/img/slider/2.png",
+  "/assets/img/slider/3.png",
+  "/assets/img/slider/4.png",
+  "/assets/img/slider/5.png",
+  "/assets/img/slider/6.png",
   // Tambahkan path gambar lain sesuai kebutuhan
 ];
 
