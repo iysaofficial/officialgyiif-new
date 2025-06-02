@@ -1,8 +1,10 @@
 import Link from "next/link";
+import GallerySlider from "@/components/GallerySlider";
 
 export const Footer = (props) => {
   return (
     <>
+      <GallerySlider />
       <footer className="bg-dark text-white pt-5 pb-4" id="footer">
         <div className="container text-center text-md-left">
           <div className="row text-center text-md-left">
