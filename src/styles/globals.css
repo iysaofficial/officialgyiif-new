@@ -670,6 +670,7 @@ label {
   border: solid 2px #10101010;
   height: auto;
   margin: 10px;
+  width: 30%;
 }
 
 .news-section .card-news .content a{
