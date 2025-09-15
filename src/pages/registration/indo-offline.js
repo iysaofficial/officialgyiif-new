@@ -48,8 +48,8 @@ function IndonesiaOffline() {
     switch (value) {
       case "Global Youth Invention and Innovation Fair - Offline Competition":
         break;
-      case "Global Youth Invention and Innovation Fair - Offline Competition + Excursion":
-        break;
+      // case "Global Youth Invention and Innovation Fair - Offline Competition + Excursion":
+      //   break;
       case "Global Youth Invention and Innovation Fair - Offline Competition + FullPack":
         break;
       default:
@@ -221,7 +221,7 @@ function IndonesiaOffline() {
                     name="CATEGORY_PARTICIPANT"
                     className="form-control"
                     placeholder="Choose Categories Participant"
-                    value="INDONESIA PARTICIPANT"
+                    value="INDONESIAN CITIZEN"
                     readOnly
                   />
                 </div>
@@ -242,9 +242,9 @@ function IndonesiaOffline() {
                     <option value="Global Youth Invention and Innovation Fair - Offline Competition">
                       Offline Competition
                     </option>
-                    <option value="Global Youth Invention and Innovation Fair - Offline Competition + Excursion">
+                    {/* <option value="Global Youth Invention and Innovation Fair - Offline Competition + Excursion">
                       Offline Competition + Excursion
-                    </option>
+                    </option> */}
                     <option value="Global Youth Invention and Innovation Fair - Offline Competition + Fullpack">
                       Offline Competition + Fullpack
                     </option>

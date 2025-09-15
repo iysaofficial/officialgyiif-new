@@ -51,8 +51,8 @@ export default function InternationalOffline() {
         break;
       case "Global Youth Invention and Innovation Fair - Offline Competition + Full Package":
         break;
-      case "Global Youth Invention and Innovation Fair - Offline Competition + Excursion":
-        break;
+      // case "Global Youth Invention and Innovation Fair - Offline Competition + Excursion":
+      //   break;
       default:
         setCategoryPrice("");
         break;
@@ -157,8 +157,8 @@ export default function InternationalOffline() {
             <br />
             <br />
             <h4>
-              HELLO GYIIF 2026 INTERNATIONAL CITIZEN, Please consider the following
-              information before filling out the registration form :
+              HELLO GYIIF 2026 INTERNATIONAL CITIZEN, Please consider the
+              following information before filling out the registration form :
             </h4>
             <br />
             <p>
@@ -221,19 +221,15 @@ export default function InternationalOffline() {
                   <label for="CATEGORY_PARTICIPANT" className="form-label">
                     Categories Participant
                   </label>
-                  <select
+                  <input
                     type="text"
                     id="CATEGORY_PARTICIPANT"
                     name="CATEGORY_PARTICIPANT"
                     className="form-control"
                     placeholder="Choose Categories Participant"
-                    value=""
-                    required
-                  >
-                    <option value="International Participant">
-                      International Participant
-                    </option>
-                  </select>
+                    value="INTERNATIONAL CITIZEN"
+                    readOnly
+                  ></input>
                 </div>
                 <div className="input-box">
                   <label for="CATEGORY_COMPETITION" className="form-label">
@@ -255,9 +251,9 @@ export default function InternationalOffline() {
                     <option value="Global Youth Invention and Innovation Fair - Offline Competition + Full Package">
                       Offline Competition + Full Package
                     </option>
-                    <option value="Global Youth Invention and Innovation Fair - Offline Competition + Excursion">
+                    {/* <option value="Global Youth Invention and Innovation Fair - Offline Competition + Excursion">
                       Offline Competition + Excursion
-                    </option>
+                    </option> */}
                   </select>
                 </div>
               </div>

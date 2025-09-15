@@ -229,7 +229,7 @@ export default function InternationalOnline() {
                     name="CATEGORY_PARTICIPANT"
                     className="form-control"
                     placeholder="Choose Categories Participant"
-                    value="International Participant"
+                    value="INTERNATIONAL CITIZEN"
                     readOnly
                   ></input>
                 </div>

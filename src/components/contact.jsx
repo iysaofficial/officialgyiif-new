@@ -1,5 +1,39 @@
-const Contact = ({ contactInfo }) => {
+"use client";
 
+import Link from "next/link";
+import React, { useEffect } from "react";
+
+const Contact = ({ contactInfo }) => {
+  useEffect(() => {
+    const scriptURL =
+      "https://script.google.com/macros/s/AKfycbzdgUOy_s6zjJQTgqXQ7GX3H1_w6TvWq1hsBZgH0mSREWt3qXCKA34-qo74-jfDVbHE/exec";
+
+    const form = document.forms.namedItem("home-contact");
+
+    if (form) {
+      const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+          await fetch(scriptURL, {
+            method: "POST",
+            body: new FormData(form),
+          });
+          alert("Message sent successfully!");
+          form.reset();
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Failed to send Message.");
+        }
+      };
+
+      form.addEventListener("submit", handleSubmit);
+
+      // cleanup listener
+      return () => {
+        form.removeEventListener("submit", handleSubmit);
+      };
+    }
+  }, []);
   return (
     <section className="contact-section" id="contact">
       <div className="container row">
@@ -12,14 +46,15 @@ const Contact = ({ contactInfo }) => {
                 get back to you as soon as possible.
               </p>
             </div>
-            <form action="https://formspree.io/f/mknlrzbr" method="POST">
+            <form method="POST" name="home-contact">
               <div className="row">
+                <input type="hidden" name="Event" value="GYIIF" readOnly />
                 <div className="col-md-6">
                   <div className="form-group">
                     <input
                       type="text"
                       id="name"
-                      name="name"
+                      name="Name"
                       className="form-control"
                       placeholder="Name"
                       required
@@ -32,7 +67,7 @@ const Contact = ({ contactInfo }) => {
                     <input
                       type="email"
                       id="email"
-                      name="email"
+                      name="Email"
                       className="form-control"
                       placeholder="Email"
                       required
@@ -43,7 +78,7 @@ const Contact = ({ contactInfo }) => {
               </div>
               <div className="form-group">
                 <textarea
-                  name="message"
+                  name="Message"
                   id="message"
                   className="form-control"
                   rows="4"
@@ -52,7 +87,9 @@ const Contact = ({ contactInfo }) => {
                 ></textarea>
                 <p className="help-block text-danger"></p>
               </div>
-              <button type="submit" className="btn btn-custom btn-lg" >Send Message</button>
+              <button type="submit" className="btn btn-custom btn-lg">
+                Send Message
+              </button>
             </form>
           </div>
         </div>
@@ -86,14 +123,6 @@ const Contact = ({ contactInfo }) => {
                 rel="noopener noreferrer"
               >
                 0882 1324 8890
-              </a>
-              <br />
-              <a
-                href="https://api.whatsapp.com/send/?phone=6281770914129&text&type=phone_number&app_absent=0"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                0817 7091 4129
               </a>
             </p>
           </div>

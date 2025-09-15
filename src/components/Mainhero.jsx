@@ -11,21 +11,18 @@ export const Mainhero = (props) => {
       
       >
         <div className="text">
-          {/* <h2 style={{ color: "yellow", fontWeight: "bold" }}>
-            OPEN REGISTRATION 2026
-          </h2> */}
           <h2 style={{ color: "yellow", fontWeight: "bold" }}>
-            COMING SOON 2026
+            OPEN REGISTRATION 2026
           </h2>
           <h2 style={{ color: "white" }}>
             GLOBAL YOUTH INVENTION AND INNOVATION FAIR
           </h2>
-          {/* <Link href="/registration/homeregist" legacyBehavior>
+          <Link href="/registration/homeregist" legacyBehavior>
             <a className="btn btn-custom btn-action m-2">Open Registration</a>
-          </Link> */}
-          {/* <Link href="https://drive.google.com/file/d/1HAN-QQHTbSCOuFNdYL-V9x4kikElmKTd/view?usp=sharing" legacyBehavior>
+          </Link>
+          <Link href="https://drive.google.com/file/d/1hlaFs_WJC865Hx4zwqodTtEFL2tqSy9l/view?usp=sharing" legacyBehavior>
             <a className="btn btn-custom btn-action m-2" target="_blank">Guide Book</a>
-          </Link> */}
+          </Link>
         </div>
         <ParticlesBg
           type="circle"

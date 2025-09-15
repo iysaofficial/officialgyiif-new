@@ -221,7 +221,7 @@ function IndonesiaOnline() {
                     name="CATEGORY_PARTICIPANT"
                     className="form-control"
                     placeholder="Choose Categories Participant"
-                    value="INDONESIA CITIZEN"
+                    value="INDONESIAN CITIZEN"
                     readOnly
                   />
                 </div>
