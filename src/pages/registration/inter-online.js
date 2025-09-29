@@ -47,13 +47,13 @@ export default function InternationalOnline() {
     // Logika untuk menentukan harga berdasarkan kategori yang dipilih
     switch (value) {
       case "Global Youth Invention and Innovation Fair - Online Competition":
-        setCategoryPrice("$75 USD");
+        setCategoryPrice("$105 USD");
         break;
       case "Global Youth Invention and Innovation Fair - Online Competition + Certificate and Medal (SOUTH EAST ASIA ONLY)":
-        setCategoryPrice("$200 USD");
+        setCategoryPrice("$225 USD");
         break;
       case "Global Youth Invention and Innovation Fair - Online Competition + Certificate and Medal (Exclude SOUTH EAST ASIA)":
-        setCategoryPrice("$250 USD");
+        setCategoryPrice("$275 USD");
         break;
       default:
         setCategoryPrice("");
