@@ -20,9 +20,9 @@ function HomeRegist() {
             </div>
           </div>
           <div className="link-web mx-auto text-center">
-            <Link href="/registration/homeindo" legacyBehavior>
+            <Link href="/registration/homeregist" legacyBehavior>
               <a className="btn btn-custom text-center me-lg-5 m-2">
-                INDONESIAN CITIZEN{" "}
+                CLOSE REGISTRATION{" "}
                 <FlagIcon
                   code="ID"
                   title="Indonesia"
@@ -30,9 +30,9 @@ function HomeRegist() {
                 />
               </a>
             </Link>
-            <Link href="/registration/homeinter" legacyBehavior>
+            <Link href="/registration/homeregist" legacyBehavior>
               <a className="btn btn-custom text-center me-lg-5 m-2">
-                INTERNATIONAL CITIZEN{" "}
+                CLOSE REGISTRATION{" "}
                 <i className="fa-solid fa-earth-americas"></i>
               </a>
             </Link>
