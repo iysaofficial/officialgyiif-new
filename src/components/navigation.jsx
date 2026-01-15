@@ -185,6 +185,14 @@ const Navigation = () => {
                 }`}
               >
                 <Link
+                  href="https://drive.google.com/drive/folders/1hMboGN5Cmb0K_dCSgq4cSH5ok3pXHBCU"
+                  legacyBehavior
+                >
+                  <a className="dropdown-item" target="_blank">
+                    E-Certificate 2026
+                  </a>
+                </Link>
+                <Link
                   href="https://drive.google.com/drive/folders/1ms7eiyAe0nxwnZ7pWhbDzbpjOn4AUhbr"
                   legacyBehavior
                 >
