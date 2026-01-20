@@ -19,10 +19,10 @@ export const Organized = (props) => {
           </div>
           <div className="ipb col-xs-12 col-md-6">
           <Image
-              src="/assets/img/team/logo-ITP3.png"
+              src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1768892844/Logo_IPB_vlfphd.png"
               className="img-fluid img-responsive"
-              width={350} // Sesuaikan lebar gambar
-              height={100} // Sesuaikan tinggi gambar
+              width={200}
+              height={200}
               alt="UMM LOGO"
             />
           </div>

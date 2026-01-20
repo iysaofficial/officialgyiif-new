@@ -10,7 +10,7 @@ const afterevent = (props) => {
             <iframe
               width="80%"
               height="350"
-              src="https://www.youtube.com/embed/X_DjNOrnvdA?si=bCNuBirJtihlG5Yj"
+              src="https://www.youtube.com/embed/VSoDE3tMVIY?si=rRO-RBrxN_sTLOvB"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard"
               title="YouTube video player"
