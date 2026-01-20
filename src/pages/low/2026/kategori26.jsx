@@ -41,10 +41,10 @@ const kategori26 = () => {
                 >
                   Special Award
                 </a>
-              </Link>
+              </Link> */}
               <Link href="/low/2026/jenjangofl26" legacyBehavior>
                 <a className="btn btn-custom m-2">GYIIF OFFLINE</a>
-              </Link> */}
+              </Link>
               <Link href="/low/2026/jenjangonl26" legacyBehavior>
                 <a className="btn btn-custom m-2">
                   GYIIF ONLINE

@@ -31,7 +31,7 @@ const jenjangofl24 = () => {
             </div>
             <div className="content text-center">
               <Link
-                href="https://drive.google.com/file/d/1cX4jMh5wqZKJtx13fuGdGyxOZ5IA5b95/view?usp=sharing"
+                href="https://drive.google.com/file/d/1xSL0ElM87d1aD5WI_aSb2VNs6gZNLA9h/view?usp=sharing"
                 legacyBehavior
               >
                 <a
@@ -43,7 +43,7 @@ const jenjangofl24 = () => {
                 </a>
               </Link>
               <Link
-                href="https://drive.google.com/file/d/1yhCRNQfThYYi9q8HdgvNlCnE1fP7Ko9J/view?usp=sharing"
+                href="https://drive.google.com/file/d/1w7n6_5t8Cl8Y1uLcF-b0MPrSVHzEZAon/view?usp=sharing"
                 legacyBehavior
               >
                 <a
@@ -51,23 +51,11 @@ const jenjangofl24 = () => {
                   rel="noreferrer"
                   className="btn btn-custom m-2"
                 >
-                  Senior High School
+                  Secondary School
                 </a>
               </Link>
               <Link
-                href="https://drive.google.com/file/d/1CTFaA7i5RmYJOXVWkTJhmVGZysI1Ec1w/view?usp=sharing"
-                legacyBehavior
-              >
-                <a
-                  target="_blank"
-                  rel="noreferrer"
-                  className="btn btn-custom m-2"
-                >
-                  Junior High School
-                </a>
-              </Link>
-              <Link
-                href="https://drive.google.com/file/d/1J_SBwVxL2vYGh1XUcXDqqmckyZZlP2b1/view?usp=sharing"
+                href="https://drive.google.com/file/d/1DAE6YLYC59m9-pW1EX-Ku3LCnOXumZsf/view?usp=sharing"
                 legacyBehavior
               >
                 <a
