@@ -60,6 +60,14 @@ const Navigation = () => {
                       <a className="dropdown-item">News from Media</a>
                     </Link>
                     <Link
+                      href="https://drive.google.com/file/d/1FLTcyYT4NJBDxSkrzlydS2VF0BPzcZsk/view?usp=sharing"
+                      legacyBehavior
+                    >
+                      <a className="dropdown-item" target="_blank">
+                        Press Release 2026
+                      </a>
+                    </Link>
+                    <Link
                       href="https://drive.google.com/file/d/1i-rGeT9hSKNeAWFjimEVL5BBVHyMqhir/view?usp=sharing"
                       legacyBehavior
                     >
