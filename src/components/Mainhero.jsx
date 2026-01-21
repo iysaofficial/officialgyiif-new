@@ -15,14 +15,14 @@ export const Mainhero = (props) => {
           <Link href="/" legacyBehavior>
             <a className="btn btn-custom btn-action m-2">Coming Soon 2027</a>
           </Link>
-          <Link
+          {/* <Link
             href="https://drive.google.com/file/d/1hlaFs_WJC865Hx4zwqodTtEFL2tqSy9l/view?usp=sharing"
             legacyBehavior
           >
             <a className="btn btn-custom btn-action m-2" target="_blank">
               Guide Book
             </a>
-          </Link>
+          </Link> */}
         </div>
         <ParticlesBg
           type="circle"
