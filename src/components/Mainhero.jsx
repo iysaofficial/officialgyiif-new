@@ -13,7 +13,7 @@ export const Mainhero = (props) => {
             GLOBAL YOUTH INVENTION AND INNOVATION FAIR
           </h2>
           <Link href="/" legacyBehavior>
-            <a className="btn btn-custom btn-action m-2">Close Registration</a>
+            <a className="btn btn-custom btn-action m-2">Coming Soon 2027</a>
           </Link>
           <Link
             href="https://drive.google.com/file/d/1hlaFs_WJC865Hx4zwqodTtEFL2tqSy9l/view?usp=sharing"
