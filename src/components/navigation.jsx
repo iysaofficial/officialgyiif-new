@@ -4,9 +4,18 @@ import { useState } from "react";
 
 const Navigation = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
+  const [openSubDropdown, setOpenSubDropdown] = useState(null);
 
   const handleDropdownToggle = (dropdown) => {
-    setOpenDropdown(openDropdown === dropdown ? null : dropdown);
+    const newOpenDropdown = openDropdown === dropdown ? null : dropdown;
+    setOpenDropdown(newOpenDropdown);
+    if (newOpenDropdown === null) {
+      setOpenSubDropdown(null);
+    }
+  };
+
+  const handleSubDropdownToggle = (dropdown) => {
+    setOpenSubDropdown(openSubDropdown === dropdown ? null : dropdown);
   };
 
   return (
@@ -208,14 +217,40 @@ const Navigation = () => {
                   openDropdown === "e-certificate" ? " show" : ""
                 }`}
               >
-                <Link
-                  href="https://drive.google.com/drive/folders/1hMboGN5Cmb0K_dCSgq4cSH5ok3pXHBCU"
-                  legacyBehavior
-                >
-                  <a className="dropdown-item" target="_blank">
-                    E-Certificate 2026
-                  </a>
-                </Link>
+               <div className="dropdown">
+                 <a
+                   className="dropdown-item dropdown-toggle"
+                   href="#"
+                   onClick={(e) => {
+                     e.preventDefault();
+                     handleSubDropdownToggle("e-certificate-2026");
+                   }}
+                 >
+                   E-Certificate 2026
+                 </a>
+                 <div
+                   className={`dropdown-menu${
+                     openSubDropdown === "e-certificate-2026" ? " show" : ""
+                   }`}
+                 >
+                   <Link
+                     href="https://drive.google.com/drive/folders/1hMboGN5Cmb0K_dCSgq4cSH5ok3pXHBCU"
+                     legacyBehavior
+                   >
+                     <a className="dropdown-item" target="_blank">
+                       Online
+                     </a>
+                   </Link>
+                   <Link
+                     href="https://drive.google.com/drive/folders/1RlbN41sjpkU9IeHlHwxTHrbCowFi2hUZ?usp=sharing"
+                     legacyBehavior
+                   >
+                     <a className="dropdown-item" target="_blank">
+                       Offline
+                     </a>
+                   </Link>
+                 </div>
+               </div>
                 <Link
                   href="https://drive.google.com/drive/folders/1ms7eiyAe0nxwnZ7pWhbDzbpjOn4AUhbr"
                   legacyBehavior
