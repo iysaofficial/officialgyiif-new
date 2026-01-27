@@ -109,6 +109,14 @@ const Navigation = () => {
                     }`}
                   >
                     <Link
+                      href="https://drive.google.com/drive/folders/17xGH7h_KIcEi0ni2nIrlL5sSIDKDzBHn?usp=sharing"
+                      legacyBehavior
+                    >
+                      <a className="dropdown-item" target="_blank">
+                        Curation 2026
+                      </a>
+                    </Link>
+                    <Link
                       href="https://drive.google.com/drive/folders/1yXh_5j8BQNltjNOXrhFTlCQfLUnPqEbw?usp=sharing"
                       legacyBehavior
                     >
