@@ -9,6 +9,7 @@ export const About = (props) => {
             <Image
               src="/assets/img/science.jpg"
               className="img-fluid img-responsive"
+              style={{ width: 'auto', height: 'auto' }}
               width={550} // Sesuaikan lebar gambar
               height={100} // Sesuaikan tinggi gambar
               alt="UMM LOGO"

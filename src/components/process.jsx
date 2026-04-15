@@ -11,7 +11,7 @@ export const Process = (props) => {
                       <h2> <span className="number">1</span> How the Register?</h2>
                       <div className="process-content text-center">
                           <div className="video">
-                              <iframe src="https://www.youtube.com/embed/DCw862udnZo" width="75%" height="400" frameBorder="0" allowfullscreen></iframe>
+                              <iframe src="https://www.youtube.com/embed/DCw862udnZo" width="75%" height="400" frameBorder="0" allowFullScreen></iframe>
                           </div>
                       </div>
                   </div>
@@ -20,7 +20,7 @@ export const Process = (props) => {
                       <h2> <span className="number">2</span>After Registered?</h2>
                       <div className="process-content text-center">
                           <div className="video">
-                              <iframe src="https://www.youtube.com/embed/YBhdvQ1p5xQ" width="75%" height="400" frameBorder="0" allowfullscreen></iframe>
+                              <iframe src="https://www.youtube.com/embed/YBhdvQ1p5xQ" width="75%" height="400" frameBorder="0" allowFullScreen></iframe>
                           </div>
                       </div>
                   </div>

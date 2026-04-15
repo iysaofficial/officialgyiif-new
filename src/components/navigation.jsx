@@ -5,6 +5,9 @@ import { useState } from "react";
 const Navigation = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openSubDropdown, setOpenSubDropdown] = useState(null);
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
   const handleDropdownToggle = (dropdown) => {
     const newOpenDropdown = openDropdown === dropdown ? null : dropdown;
@@ -31,6 +34,7 @@ const Navigation = () => {
             width={100} // Sesuaikan lebar gambar
             height={50} // Sesuaikan tinggi gambar
             className="img-fluid"
+            style={{ width: 'auto', height: 'auto' }}
             alt="ISPC LOGO"
           />
           <button
@@ -39,13 +43,14 @@ const Navigation = () => {
             data-toggle="collapse"
             data-target="#navbarNavAltMarkup"
             aria-controls="navbarNavAltMarkup"
-            aria-expanded="false"
+            aria-expanded={!isNavCollapsed ? true : false}
             aria-label="Toggle navigation"
+            onClick={handleNavCollapse}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
           <div
-            className="collapse navbar-collapse justify-content-end me-5"
+            className={`collapse navbar-collapse justify-content-end me-5 ${!isNavCollapsed ? 'show' : ''}`}
             id="navbarNavAltMarkup"
           >
             <div className="navbar-nav">

@@ -12,6 +12,7 @@ export const Organized = (props) => {
             <Image
               src="/assets/img/team/iysa.png"
               className="img-fluid img-responsive"
+              style={{ width: 'auto', height: 'auto' }}
               width={350} // Sesuaikan lebar gambar
               height={100} // Sesuaikan tinggi gambar
               alt="UMM LOGO"
@@ -21,6 +22,7 @@ export const Organized = (props) => {
           <Image
               src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1768892844/Logo_IPB_vlfphd.png"
               className="img-fluid img-responsive"
+              style={{ width: 'auto', height: 'auto' }}
               width={200}
               height={200}
               alt="UMM LOGO"

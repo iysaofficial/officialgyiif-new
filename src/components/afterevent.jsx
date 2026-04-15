@@ -12,7 +12,7 @@ const afterevent = (props) => {
               height="350"
               src="https://www.youtube.com/embed/VSoDE3tMVIY?si=rRO-RBrxN_sTLOvB"
               frameBorder="0"
-              allow="accelerometer; autoplay; clipboard"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               title="YouTube video player"
               allowFullScreen
             ></iframe>
