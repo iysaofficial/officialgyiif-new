@@ -22,6 +22,79 @@ const Listnews = () => {
       {/* PAGE HEADER END */}
       <section className="news-section">
         <div className="container">
+          <h3 className="text-center">2026</h3>
+          <div className="row">
+            <div className="card-news col-xs-12 col-md-4">
+              <div className="content">
+                <Image
+                  src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1777346167/gyiif_1_t4yyca.jpg"
+                  className="img-fluid img-responsive mt-2"
+                  width={400} // Sesuaikan lebar gambar
+                  height={250} // Sesuaikan tinggi gambar
+                  alt="Foto 1"
+                  style={{ objectFit: 'cover', width: '100%', height: '250px' }}
+                />
+                <h4 className="text-center">
+                  Medali Perak di Pameran Penemuan dan Inovasi Pemuda Global (GYIIF) 2026
+                </h4>
+                <a>
+                  Seorang mahasiswa dari Program Studi Teknik Informatika UIN Maulana Malik Ibrahim Malang kembali mengukir prestasi gemilang. Ach. Fajar Asy’ari (NIM 240605110229) meraih medali perak pada Pameran Penemuan dan Inovasi Remaja Global 2026 (GYIIF), yang diselenggarakan secara daring di Bogor, Indonesia, pada 7–9 Januari 2026....
+                </a>
+              </div>
+              <div className="button">
+                <Link href="https://informatika.uin-malang.ac.id/id/silver-medal-at-the-global-youth-invention-and-innovation-fair-gyiif-2026/" legacyBehavior>
+                  <a className="btn btn-primary">Read more</a>
+                </Link>
+              </div>
+            </div>
+            <div className="card-news col-xs-12 col-md-4">
+              <div className="content">
+                <Image
+                  src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1777346167/gyiif_2_aagp9f.jpg"
+                  className="img-fluid img-responsive mt-2"
+                  width={400} // Sesuaikan lebar gambar
+                  height={250} // Sesuaikan tinggi gambar
+                  alt="Foto 1"
+                  style={{ objectFit: 'cover', width: '100%', height: '250px' }}
+                />
+                <h4 className="text-center">
+                  Aplikasi Brainlyt Karya Mahasiswa UMS Raih Perak GYIIF 2026
+                </h4>
+                <a>
+                 Universitas Muhammadiyah Surakarta (UMS) kembali menorehkan prestasi di panggung internasional. Capaian tersebut ditorehkan Tim Brainlyt,  yang sukses menyabet medali perak dalam Global Youth Invention and Innovation Fair (GYIIF) 2026 kategori Engineering and Technology..........
+                </a>
+              </div>
+              <div className="button">
+                <Link href="https://news.ums.ac.id/id/berita/aplikasi-brainlyt-karya-mahasiswa-ums-raih-perak-gyiif-2026/" legacyBehavior>
+                  <a className="btn btn-primary">Read more</a>
+                </Link>
+              </div>
+            </div>
+            <div className="card-news col-xs-12 col-md-4">
+              <div className="content">
+                <Image
+                  src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1777346167/gyiif_3_ghnf2l.jpg"
+                  className="img-fluid img-responsive mt-2"
+                  width={400} // Sesuaikan lebar gambar
+                  height={250} // Sesuaikan tinggi gambar
+                  alt="Foto 1"
+                  style={{ objectFit: 'cover', width: '100%', height: '250px' }}
+                />
+                <h4 className="text-center">
+                  Inovasi Brekecek Kaleng Antarkan SMA NEGERI 2 Cilacap Raih Medali Emas di Ajang GYIIF 2026
+                </h4>
+                <a>
+                 Institut Pertanian Bogor (IPB) bekerjasama dengan Indonesian Young Scientist Association (IYSA) kembali menyelenggarakan Global Youth Invention and Innovation Fair (GYIIF) yang ke-4 secara Hybrid. Kompetisi online digelar pada tanggal 7-9 Januari 2026, sedangkan kompetisi offline digelar di Bogor pada tanggal 15-18 Januari 2026....
+                </a>
+              </div>
+              <div className="button">
+                <Link href="https://news.ums.ac.id/id/berita/aplikasi-brainlyt-karya-mahasiswa-ums-raih-perak-gyiif-2026/" legacyBehavior>
+                  <a className="btn btn-primary">Read more</a>
+                </Link>
+              </div>
+            </div>
+            
+          </div>
           <h3 className="text-center">2025</h3>
           <div className="row">
             <div className="card-news col-xs-12 col-md-4">
