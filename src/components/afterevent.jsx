@@ -3,14 +3,14 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 const eventPhotos = [
-  "https://res.cloudinary.com/dtik1z1qd/image/upload/v1777348018/GYIIF_IYMIA_2026-153_jj6ejy.jpg",
-  "https://res.cloudinary.com/dtik1z1qd/image/upload/v1777348018/GYIIF_IYMIA_2026-121_xixdfa.jpg",
-  "https://res.cloudinary.com/dtik1z1qd/image/upload/v1777348018/GYIIF_IYMIA_2026-73_w6wyvr.jpg",
-  "https://res.cloudinary.com/dtik1z1qd/image/upload/v1777348018/GYIIF_IYMIA_2026-38_hbrcha.jpg",
-  "https://res.cloudinary.com/dtik1z1qd/image/upload/v1777348017/GYIIF_IYMIA_2026-39_ir7y7a.jpg",
-  "https://res.cloudinary.com/dtik1z1qd/image/upload/v1777348017/GYIIF_IYMIA_2026-52_iozcqx.jpg",
-  "https://res.cloudinary.com/dtik1z1qd/image/upload/v1776840250/nsif_2_kood8y.jpg",
-  "https://res.cloudinary.com/dtik1z1qd/image/upload/v1776840247/nsif_3_dc8pjp.jpg",
+  "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/GYIIF_IYMIA_2026-153_jj6ejy.jpg?updatedAt=1781963616522",
+  "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/GYIIF_IYMIA_2026-121_xixdfa.jpg?updatedAt=1781963617578",
+  "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/GYIIF_IYMIA_2026-73_w6wyvr.jpg?updatedAt=1781963618633",
+  "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/GYIIF_IYMIA_2026-38_hbrcha.jpg?updatedAt=1781963618834",
+  "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/GYIIF_IYMIA_2026-39_ir7y7a.jpg?updatedAt=1781963619586",
+  "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/GYIIF_IYMIA_2026-52_iozcqx.jpg?updatedAt=1781963619539",
+  "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/nsif_2_kood8y.jpg?updatedAt=1781963620529",
+  "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/nsif_3_dc8pjp.jpg?updatedAt=1781963621352",
 ];
 
 const afterevent = (props) => {
@@ -38,7 +38,8 @@ const afterevent = (props) => {
       {/* Photo Slideshow Strip */}
       <div
         style={{
-          background: "linear-gradient(to right, #e8e8e8 0%, #f5f5f5 50%, #e8e8e8 100%)",
+          background:
+            "linear-gradient(to right, #e8e8e8 0%, #f5f5f5 50%, #e8e8e8 100%)",
           padding: "5px 0",
           marginTop: "30px",
         }}
@@ -83,4 +84,3 @@ const afterevent = (props) => {
 };
 
 export default afterevent;
-

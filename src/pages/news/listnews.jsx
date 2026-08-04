@@ -27,22 +27,31 @@ const Listnews = () => {
             <div className="card-news col-xs-12 col-md-4">
               <div className="content">
                 <Image
-                  src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1777346167/gyiif_1_t4yyca.jpg"
+                  src="https://ik.imagekit.io/iysaimg/ASSET%20IYSA/gyiif_1_t4yyca.jpg?updatedAt=1781963577136"
                   className="img-fluid img-responsive mt-2"
                   width={400} // Sesuaikan lebar gambar
                   height={250} // Sesuaikan tinggi gambar
                   alt="Foto 1"
-                  style={{ objectFit: 'cover', width: '100%', height: '250px' }}
+                  style={{ objectFit: "cover", width: "100%", height: "250px" }}
                 />
                 <h4 className="text-center">
-                  Medali Perak di Pameran Penemuan dan Inovasi Pemuda Global (GYIIF) 2026
+                  Medali Perak di Pameran Penemuan dan Inovasi Pemuda Global
+                  (GYIIF) 2026
                 </h4>
                 <a>
-                  Seorang mahasiswa dari Program Studi Teknik Informatika UIN Maulana Malik Ibrahim Malang kembali mengukir prestasi gemilang. Ach. Fajar Asy’ari (NIM 240605110229) meraih medali perak pada Pameran Penemuan dan Inovasi Remaja Global 2026 (GYIIF), yang diselenggarakan secara daring di Bogor, Indonesia, pada 7–9 Januari 2026....
+                  Seorang mahasiswa dari Program Studi Teknik Informatika UIN
+                  Maulana Malik Ibrahim Malang kembali mengukir prestasi
+                  gemilang. Ach. Fajar Asy’ari (NIM 240605110229) meraih medali
+                  perak pada Pameran Penemuan dan Inovasi Remaja Global 2026
+                  (GYIIF), yang diselenggarakan secara daring di Bogor,
+                  Indonesia, pada 7–9 Januari 2026....
                 </a>
               </div>
               <div className="button">
-                <Link href="https://informatika.uin-malang.ac.id/id/silver-medal-at-the-global-youth-invention-and-innovation-fair-gyiif-2026/" legacyBehavior>
+                <Link
+                  href="https://informatika.uin-malang.ac.id/id/silver-medal-at-the-global-youth-invention-and-innovation-fair-gyiif-2026/"
+                  legacyBehavior
+                >
                   <a className="btn btn-primary">Read more</a>
                 </Link>
               </div>
@@ -50,22 +59,29 @@ const Listnews = () => {
             <div className="card-news col-xs-12 col-md-4">
               <div className="content">
                 <Image
-                  src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1777346167/gyiif_2_aagp9f.jpg"
+                  src="https://ik.imagekit.io/iysaimg/ASSET%20IYSA/gyiif_2_aagp9f.jpg?updatedAt=1782084794575"
                   className="img-fluid img-responsive mt-2"
                   width={400} // Sesuaikan lebar gambar
                   height={250} // Sesuaikan tinggi gambar
                   alt="Foto 1"
-                  style={{ objectFit: 'cover', width: '100%', height: '250px' }}
+                  style={{ objectFit: "cover", width: "100%", height: "250px" }}
                 />
                 <h4 className="text-center">
                   Aplikasi Brainlyt Karya Mahasiswa UMS Raih Perak GYIIF 2026
                 </h4>
                 <a>
-                 Universitas Muhammadiyah Surakarta (UMS) kembali menorehkan prestasi di panggung internasional. Capaian tersebut ditorehkan Tim Brainlyt,  yang sukses menyabet medali perak dalam Global Youth Invention and Innovation Fair (GYIIF) 2026 kategori Engineering and Technology..........
+                  Universitas Muhammadiyah Surakarta (UMS) kembali menorehkan
+                  prestasi di panggung internasional. Capaian tersebut
+                  ditorehkan Tim Brainlyt, yang sukses menyabet medali perak
+                  dalam Global Youth Invention and Innovation Fair (GYIIF) 2026
+                  kategori Engineering and Technology..........
                 </a>
               </div>
               <div className="button">
-                <Link href="https://news.ums.ac.id/id/berita/aplikasi-brainlyt-karya-mahasiswa-ums-raih-perak-gyiif-2026/" legacyBehavior>
+                <Link
+                  href="https://news.ums.ac.id/id/berita/aplikasi-brainlyt-karya-mahasiswa-ums-raih-perak-gyiif-2026/"
+                  legacyBehavior
+                >
                   <a className="btn btn-primary">Read more</a>
                 </Link>
               </div>
@@ -73,27 +89,35 @@ const Listnews = () => {
             <div className="card-news col-xs-12 col-md-4">
               <div className="content">
                 <Image
-                  src="https://res.cloudinary.com/dtik1z1qd/image/upload/v1777346167/gyiif_3_ghnf2l.jpg"
+                  src="https://ik.imagekit.io/iysaimg/ASSET%20IYSA/gyiif_3_ghnf2l.jpg?updatedAt=1782084794734"
                   className="img-fluid img-responsive mt-2"
                   width={400} // Sesuaikan lebar gambar
                   height={250} // Sesuaikan tinggi gambar
                   alt="Foto 1"
-                  style={{ objectFit: 'cover', width: '100%', height: '250px' }}
+                  style={{ objectFit: "cover", width: "100%", height: "250px" }}
                 />
                 <h4 className="text-center">
-                  Inovasi Brekecek Kaleng Antarkan SMA NEGERI 2 Cilacap Raih Medali Emas di Ajang GYIIF 2026
+                  Inovasi Brekecek Kaleng Antarkan SMA NEGERI 2 Cilacap Raih
+                  Medali Emas di Ajang GYIIF 2026
                 </h4>
                 <a>
-                 Institut Pertanian Bogor (IPB) bekerjasama dengan Indonesian Young Scientist Association (IYSA) kembali menyelenggarakan Global Youth Invention and Innovation Fair (GYIIF) yang ke-4 secara Hybrid. Kompetisi online digelar pada tanggal 7-9 Januari 2026, sedangkan kompetisi offline digelar di Bogor pada tanggal 15-18 Januari 2026....
+                  Institut Pertanian Bogor (IPB) bekerjasama dengan Indonesian
+                  Young Scientist Association (IYSA) kembali menyelenggarakan
+                  Global Youth Invention and Innovation Fair (GYIIF) yang ke-4
+                  secara Hybrid. Kompetisi online digelar pada tanggal 7-9
+                  Januari 2026, sedangkan kompetisi offline digelar di Bogor
+                  pada tanggal 15-18 Januari 2026....
                 </a>
               </div>
               <div className="button">
-                <Link href="https://news.ums.ac.id/id/berita/aplikasi-brainlyt-karya-mahasiswa-ums-raih-perak-gyiif-2026/" legacyBehavior>
+                <Link
+                  href="https://news.ums.ac.id/id/berita/aplikasi-brainlyt-karya-mahasiswa-ums-raih-perak-gyiif-2026/"
+                  legacyBehavior
+                >
                   <a className="btn btn-primary">Read more</a>
                 </Link>
               </div>
             </div>
-            
           </div>
           <h3 className="text-center">2025</h3>
           <div className="row">
@@ -107,14 +131,21 @@ const Listnews = () => {
                   alt="Foto 1"
                 />
                 <h4 className="text-center">
-                  MAN 4 Jakarta Research Team Receives Eight Medals at the Global Youth Invention and Innovation Fair 2025
+                  MAN 4 Jakarta Research Team Receives Eight Medals at the
+                  Global Youth Invention and Innovation Fair 2025
                 </h4>
                 <a>
-                  South Jakarta (Kemenag) --- The research team of Madrasah Aliyah Negeri (MAN) 4 Jakarta has made achievements at the beginning of 2025. The Ministry of Religious Affairs-assisted madrasah research team won eight medals at...
+                  South Jakarta (Kemenag) --- The research team of Madrasah
+                  Aliyah Negeri (MAN) 4 Jakarta has made achievements at the
+                  beginning of 2025. The Ministry of Religious Affairs-assisted
+                  madrasah research team won eight medals at...
                 </a>
               </div>
               <div className="button">
-                <Link href="https://kemenag.go.id/nasional/tim-riset-man-4-jakarta-boyong-delapan-medali-global-youth-invention-and-innovation-fair-2025-I0rmy" legacyBehavior>
+                <Link
+                  href="https://kemenag.go.id/nasional/tim-riset-man-4-jakarta-boyong-delapan-medali-global-youth-invention-and-innovation-fair-2025-I0rmy"
+                  legacyBehavior
+                >
                   <a className="btn btn-primary">Read more</a>
                 </Link>
               </div>
@@ -129,14 +160,21 @@ const Listnews = () => {
                   alt="Foto 1"
                 />
                 <h4 className="text-center">
-                  MAN 2 Padangsidimpuan Research Team Achieves International Level Achievement GYIIF 2025
+                  MAN 2 Padangsidimpuan Research Team Achieves International
+                  Level Achievement GYIIF 2025
                 </h4>
                 <a>
-                  Ten MAN 2 Padangsidimpuan students who are members of 2 research teams have made international achievements after winning the Silver Medal at the Global Youth Invention and Innovation Fair (GYIIF) 2025. (ist)...
+                  Ten MAN 2 Padangsidimpuan students who are members of 2
+                  research teams have made international achievements after
+                  winning the Silver Medal at the Global Youth Invention and
+                  Innovation Fair (GYIIF) 2025. (ist)...
                 </a>
               </div>
               <div className="button">
-                <Link href="https://www.medanposonline.com/sumatera-utara/9432/tim-riset-man-2-padangsidimpuan-raih-prestasi-tingkat-internasional-gyiif-2025/medanposonline" legacyBehavior>
+                <Link
+                  href="https://www.medanposonline.com/sumatera-utara/9432/tim-riset-man-2-padangsidimpuan-raih-prestasi-tingkat-internasional-gyiif-2025/medanposonline"
+                  legacyBehavior
+                >
                   <a className="btn btn-primary">Read more</a>
                 </Link>
               </div>
