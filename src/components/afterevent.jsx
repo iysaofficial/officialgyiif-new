@@ -3,14 +3,14 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 
 const eventPhotos = [
-  "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/GYIIF_IYMIA_2026-153_jj6ejy.jpg?updatedAt=1781963616522",
-  "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/GYIIF_IYMIA_2026-121_xixdfa.jpg?updatedAt=1781963617578",
-  "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/GYIIF_IYMIA_2026-73_w6wyvr.jpg?updatedAt=1781963618633",
-  "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/GYIIF_IYMIA_2026-38_hbrcha.jpg?updatedAt=1781963618834",
-  "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/GYIIF_IYMIA_2026-39_ir7y7a.jpg?updatedAt=1781963619586",
-  "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/GYIIF_IYMIA_2026-52_iozcqx.jpg?updatedAt=1781963619539",
-  "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/nsif_2_kood8y.jpg?updatedAt=1781963620529",
-  "https://ik.imagekit.io/iysaimg/ASSET%20IYSA/nsif_3_dc8pjp.jpg?updatedAt=1781963621352",
+  "/assets/img/slider/GYIIF_IYMIA_2026-153_jj6ejy.jpg",
+  "/assets/img/slider/GYIIF_IYMIA_2026-121_xixdfa.jpg",
+  "/assets/img/slider/GYIIF_IYMIA_2026-73_w6wyvr.jpg",
+  "/assets/img/slider/GYIIF_IYMIA_2026-38_hbrcha.jpg",
+  "/assets/img/slider/GYIIF_IYMIA_2026-39_ir7y7a.jpg",
+  "/assets/img/slider/GYIIF_IYMIA_2026-52_iozcqx.jpg",
+  "/assets/img/slider/nsif_2_kood8y.jpg",
+  "/assets/img/slider/nsif_3_dc8pjp.jpg",
 ];
 
 const afterevent = (props) => {

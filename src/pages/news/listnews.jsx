@@ -27,7 +27,7 @@ const Listnews = () => {
             <div className="card-news col-xs-12 col-md-4">
               <div className="content">
                 <Image
-                  src="https://ik.imagekit.io/iysaimg/ASSET%20IYSA/gyiif_1_t4yyca.jpg?updatedAt=1781963577136"
+                  src="/assets/img/news/gyiif_1_t4yyca.jpg"
                   className="img-fluid img-responsive mt-2"
                   width={400} // Sesuaikan lebar gambar
                   height={250} // Sesuaikan tinggi gambar
@@ -59,7 +59,7 @@ const Listnews = () => {
             <div className="card-news col-xs-12 col-md-4">
               <div className="content">
                 <Image
-                  src="https://ik.imagekit.io/iysaimg/ASSET%20IYSA/gyiif_2_aagp9f.jpg?updatedAt=1782084794575"
+                  src="/assets/img/news/gyiif_2_aagp9f.jpg"
                   className="img-fluid img-responsive mt-2"
                   width={400} // Sesuaikan lebar gambar
                   height={250} // Sesuaikan tinggi gambar
@@ -89,7 +89,7 @@ const Listnews = () => {
             <div className="card-news col-xs-12 col-md-4">
               <div className="content">
                 <Image
-                  src="https://ik.imagekit.io/iysaimg/ASSET%20IYSA/gyiif_3_ghnf2l.jpg?updatedAt=1782084794734"
+                  src="/assets/img/news/gyiif_3_ghnf2l.jpg"
                   className="img-fluid img-responsive mt-2"
                   width={400} // Sesuaikan lebar gambar
                   height={250} // Sesuaikan tinggi gambar
