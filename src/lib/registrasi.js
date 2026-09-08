@@ -1,70 +1,63 @@
 /**
- * Keadaan pendaftaran, dan ke mana orang dikirim untuk mendaftar.
+ * Keadaan pendaftaran edisi yang sedang disiarkan.
  *
- * ── Kenapa keadaannya DIHITUNG, bukan diketik ─────────────────────────────
+ * ── Kenapa keadaannya DIBACA, bukan diketik ───────────────────────────────
  *
  * Sebelum ini halaman pendaftaran memaku tulisan "CLOSE REGISTRATION" di
  * dalam kode, dan judulnya masih menyebut "GYIIF 2025" — dua edisi tertinggal.
  * Tombolnya pun menunjuk ke halaman itu sendiri, jadi mengkliknya tidak
  * membawa ke mana-mana.
  *
- * Itu bukan kelalaian orangnya: keadaan yang harus diubah tangan di dalam
- * kode akan selalu tertinggal, karena yang mengingatnya harus orang dan yang
- * mengubahnya harus programmer. Tanggalnya sudah ada di dasbor; keadaannya
- * diturunkan dari sana.
+ * Itu bukan kelalaian orangnya: keadaan yang harus diubah tangan di dalam kode
+ * akan selalu tertinggal, karena yang mengingatnya harus orang dan yang
+ * mengubahnya harus programmer. Sekarang ia datang dari dasbor.
  *
- * ── Kenapa pendaftarannya diarahkan ke dasbor, bukan diformulirkan di sini ─
+ * ── Formulirnya di situs ini, datanya di dasbor ───────────────────────────
  *
  * Mendaftar menulis peserta, tim, pembimbing, dan tagihan sekaligus, lalu
- * memicu email undangan. Formulir enam langkah di dasbor sudah menangani
- * anggota yang bertambah, peserta warga negara asing, unggah berkas, dan
- * pembayaran.
+ * memicu surel undangan. Semua itu tetap dikerjakan dasbor — situs ini tidak
+ * menyentuh satu tabel pun.
  *
- * Menulis ulang semuanya di sini berarti DUA formulir yang harus dirawat, dan
- * yang satu pasti tertinggal — persis seperti tulisan "GYIIF 2025" tadi.
+ * Yang dirender di sini cuma formulirnya, lewat berkas sisipan dari API
+ * dasbor. Jadi tetap SATU formulir yang dirawat, dan pendaftar tidak pernah
+ * meninggalkan gyiif.or.id di langkah yang paling menentukan.
  */
-
-/** UUID edisi yang dituju formulir pendaftaran dasbor. */
-const EVENT_ID = process.env.NEXT_PUBLIC_IYSA_EVENT_ID
-  ?? 'a03c7f2e-5581-4642-aeb6-8ff25c1e3e15';
-
-const DASBOR = process.env.NEXT_PUBLIC_IYSA_DASHBOARD
-  ?? 'https://dashboard.iysa.or.id';
-
-/**
- * Alamat pendaftaran.
- *
- * Menunjuk ke `/start`, bukan langsung ke formulirnya: di sana pendaftar
- * memverifikasi surelnya dengan kode enam digit lebih dulu. Melompatinya
- * membuat formulir terbuka tanpa tahu siapa yang mengisinya.
- */
-export function urlPendaftaran() {
-  return `${DASBOR}/register/${EVENT_ID}/start`;
-}
 
 /**
  * `belum` | `buka` | `tutup` | `tak_diketahui`
  *
- * `tak_diketahui` saat tanggalnya tidak ada — API mati, atau edisinya memang
- * belum menetapkan jendela pendaftaran. Dibedakan dari `tutup` dengan sengaja:
- * menampilkan "pendaftaran ditutup" karena API sedang mati adalah berbohong
- * kepada orang yang sebenarnya masih boleh mendaftar.
+ * ── Yang memutuskan adalah TOGEL di dasbor, bukan tanggalnya ──────────────
+ *
+ * Versi pertama menghitungnya dari `pendaftaran_buka`/`pendaftaran_tutup`.
+ * Akibatnya panitia menyalakan togel "Pendaftaran Terbuka" di dasbor dan
+ * situs ini tetap berkata belum — dua sumber kebenaran untuk satu pertanyaan,
+ * dan yang membaca layar tidak punya cara tahu mana yang menang.
+ *
+ * Sekarang `pendaftaran_dibuka` yang menentukan. Tanggalnya tetap dipakai,
+ * tapi untuk MENJELASKAN: yang datang sebelum tanggal rencana diberi tahu
+ * kapan harus kembali, dan yang datang setelah tanggal rencana sementara
+ * pendaftarannya sudah ditutup diberi tahu bahwa ia terlambat — bukan bahwa
+ * halamannya rusak.
+ *
+ * `tak_diketahui` saat API tidak menjawab sama sekali. Dibedakan dari `tutup`
+ * dengan sengaja: menampilkan "pendaftaran ditutup" karena API sedang mati
+ * adalah berbohong kepada orang yang sebenarnya masih boleh mendaftar.
  */
 export function keadaanPendaftaran(identitas, sekarang = new Date()) {
-  const buka = identitas?.pendaftaran_buka;
-  const tutup = identitas?.pendaftaran_tutup;
+  if (!identitas) return 'tak_diketahui';
+  if (identitas.pendaftaran_dibuka) return 'buka';
+
+  /*
+   * Togelnya mati. Tanggalnya cuma menentukan KALIMAT mana yang lebih
+   * menolong — "belum dibuka, kembali tanggal sekian" atau "sudah lewat".
+   */
+  const buka = identitas.pendaftaran_buka;
+  const tutup = identitas.pendaftaran_tutup;
   if (!buka && !tutup) return 'tak_diketahui';
 
   const t = sekarang.getTime();
-  // Tanggal dari API berbentuk `YYYY-MM-DD` tanpa jam. Penutupan dihitung
-  // sampai AKHIR harinya — pendaftaran yang "tutup 18 Desember" masih boleh
-  // masuk pada 18 Desember malam, dan itu yang dipahami semua orang.
   const mulai = buka ? new Date(`${buka}T00:00:00+07:00`).getTime() : -Infinity;
-  const akhir = tutup ? new Date(`${tutup}T23:59:59+07:00`).getTime() : Infinity;
-
-  if (t < mulai) return 'belum';
-  if (t > akhir) return 'tutup';
-  return 'buka';
+  return t < mulai ? 'belum' : 'tutup';
 }
 
 /** "26 November 2026" — untuk dipajang, bukan untuk dihitung. */
