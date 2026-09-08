@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -64,9 +65,26 @@ const afterevent = (props) => {
                 marginRight: "8px",
               }}
             >
-              <img
+              {/*
+                `next/image`, bukan `<img>`.
+                
+                Slide ini digambar 300x200 piksel, tapi `<img>` menariknya apa
+                adanya — dua sampai tiga megabita per foto, tujuh foto sekaligus
+                di halaman depan. Untuk guru dan siswa yang membukanya dari
+                kuota ponsel, itu tab yang ditutup sebelum tombol daftarnya
+                sempat terlihat.
+
+                `next/image` menyajikannya seukuran yang benar dan dalam format
+                WebP, dan hanya memuat yang terlihat. `sizes` disebut supaya ia
+                tidak menebak lebar layar penuh untuk kotak selebar 300px.
+              */}
+              <Image
                 src={src}
                 alt={`GYIIF IYMIA 2026 - ${i + 1}`}
+                width={600}
+                height={400}
+                sizes="300px"
+                quality={70}
                 style={{
                   width: "100%",
                   height: "200px",
