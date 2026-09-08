@@ -55,15 +55,53 @@ export function keadaanPendaftaran(identitas, sekarang = new Date()) {
   const tutup = identitas.pendaftaran_tutup;
   if (!buka && !tutup) return 'tak_diketahui';
 
-  const t = sekarang.getTime();
-  const mulai = buka ? new Date(`${buka}T00:00:00+07:00`).getTime() : -Infinity;
-  return t < mulai ? 'belum' : 'tutup';
+  /*
+   * Dibandingkan sebagai STRING `YYYY-MM-DD`, bukan sebagai `Date`.
+   *
+   * Urutan leksikografis `YYYY-MM-DD` sama persis dengan urutan kalendernya,
+   * jadi perbandingannya benar tanpa menyentuh zona waktu — dan zona waktulah
+   * yang membuat server dan peramban sempat berbeda satu hari.
+   *
+   * "Hari ini" tetap dihitung menurut WIB: itu zona tempat panitianya bekerja
+   * dan tempat tenggatnya diumumkan.
+   */
+  const hariIni = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Jakarta', year: 'numeric', month: '2-digit', day: '2-digit',
+  }).format(sekarang);
+  return hariIni < buka ? 'belum' : 'tutup';
 }
 
-/** "26 November 2026" — untuk dipajang, bukan untuk dihitung. */
-export function tanggalPanjang(iso, locale = 'id-ID') {
-  if (!iso) return null;
-  const d = new Date(`${iso}T00:00:00+07:00`);
-  if (Number.isNaN(d.getTime())) return null;
-  return d.toLocaleDateString(locale, { day: 'numeric', month: 'long', year: 'numeric' });
+const BULAN = [
+  'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
+  'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember',
+];
+
+/**
+ * "26 November 2026" — untuk dipajang, bukan untuk dihitung.
+ *
+ * ── Kenapa TIDAK memakai toLocaleDateString ───────────────────────────────
+ *
+ * Versi pertama memakainya, dan hasilnya berbeda antara server dan peramban:
+ * server mengirim "25 November 2026", peramban menggambar "26 November 2026".
+ * Selisih tepat satu hari, dan React menjatuhkannya sebagai hydration
+ * mismatch — galat #418, #423, dan #425 sekaligus di konsol pengunjung.
+ *
+ * Sebabnya zona waktu. `new Date('2026-11-26T00:00:00+07:00')` adalah
+ * 25 November pukul 17:00 UTC. `toLocaleDateString` tanpa opsi `timeZone`
+ * memakai zona waktu MESIN yang menjalankannya: Vercel di UTC menulis 25,
+ * peramban di Jakarta menulis 26.
+ *
+ * Yang datang dari API sudah berbentuk `YYYY-MM-DD` — sebuah tanggal kalender,
+ * bukan sebuah titik waktu. Mengubahnya jadi `Date` lebih dulu berarti
+ * memberinya jam yang tidak pernah dimaksudkan, lalu menerjemahkannya kembali
+ * lewat zona waktu yang berbeda-beda. Dipotong langsung dari stringnya, tidak
+ * ada zona waktu yang terlibat sama sekali, dan hasilnya identik di mana pun.
+ */
+export function tanggalPanjang(iso) {
+  if (typeof iso !== 'string') return null;
+  const cocok = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso.trim());
+  if (!cocok) return null;
+  const bulan = BULAN[Number(cocok[2]) - 1];
+  if (!bulan) return null;
+  return `${Number(cocok[3])} ${bulan} ${cocok[1]}`;
 }
