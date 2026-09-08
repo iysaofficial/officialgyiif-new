@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 
 import Navigation from "@/components/navigation";
 import { Mainhero } from "@/components/Mainhero";
+import { ambilIdentitas } from "@/lib/dashboardApi";
 import { Organized } from "@/components/organized";
 import { About } from "@/components/about";
 import { Process } from "@/components/process";
@@ -14,7 +15,7 @@ import { Timevenue } from "@/components/timevenue";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ data }) {
+export default function Home({ identitas }) {
   return (
     <>
       <Head>
@@ -23,7 +24,7 @@ export default function Home({ data }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Navigation />
-      <Mainhero />
+      <Mainhero identitas={identitas} />
       <Organized />
       <About />
       {/* <Timevenue /> */}
@@ -34,4 +35,17 @@ export default function Home({ data }) {
       <Footer />
     </>
   );
+}
+
+/**
+ * Identitas edisi ditarik saat halaman dibangun ulang, bukan tiap kunjungan.
+ *
+ * Lima menit, sama dengan umur cache API-nya — tidak ada permintaan yang
+ * terbuang menanyakan sesuatu yang di sana pun masih disimpan.
+ */
+export async function getStaticProps() {
+  return {
+    props: { identitas: await ambilIdentitas() },
+    revalidate: 300,
+  };
 }
