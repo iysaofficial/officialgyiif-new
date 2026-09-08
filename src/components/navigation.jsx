@@ -202,6 +202,44 @@ const Navigation = () => {
                     </Link>
                   </div>
                 </div>
+                <div className="nav-item dropdown">
+                  <a
+                    className="nav-link dropdown-toggle pointer"
+                    onClick={() => handleDropdownToggle("guidebook")}
+                  >
+                    Buku Panduan
+                  </a>
+                  <div
+                    className={`dropdown-menu${
+                      openDropdown === "guidebook" ? " show" : ""
+                    }`}
+                  >
+                    <Link
+                      href="https://drive.google.com/file/d/10hOXD9bRsl-gjfASo3t5EX1Nb0B4QUT6/view?usp=sharing"
+                      legacyBehavior
+                    >
+                      <a className="dropdown-item" target="_blank">
+                        Buku Panduan 2026
+                      </a>
+                    </Link>
+                    <Link
+                      href="https://drive.google.com/file/d/1t_qF2OOvwwGZSkIiIPZUSEOPwhTXTQwd/view?usp=sharing"
+                      legacyBehavior
+                    >
+                      <a className="dropdown-item" target="_blank">
+                        Buku Panduan 2025
+                      </a>
+                    </Link>
+                    <Link
+                      href="https://drive.google.com/file/d/1NdxNtV5xIXBdEzTszofPCjRg3HBbw_iF/view?usp=sharing"
+                      legacyBehavior
+                    >
+                      <a className="dropdown-item" target="_blank">
+                        Buku Panduan 2024
+                      </a>
+                    </Link>
+                  </div>
+                </div>
                 <Link href="/faq/faqpage" legacyBehavior>
                   <a className="nav-item nav-link">FAQ </a>
                 </Link>
@@ -267,11 +305,6 @@ const Navigation = () => {
               </div>
             </div>
             <div className="ms-lg-3">
-              {/* <Link href="/" legacyBehavior>
-                <a className="btn btn-primary btn-action" target="_blank">
-                Buku Panduan
-                </a>
-                </Link> */}
             </div>
           </div>
         </div>
