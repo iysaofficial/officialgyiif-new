@@ -4,6 +4,12 @@
 /* UMUM START */
 
 :root{
+  --warna-aksen: #5ca9fb;
+  --warna-aksen-2: #6372ff;
+  --warna-gelap: #262521;
+  --warna-redup: #777;
+  --warna-garis: #ddd;
+  --warna-latar: #f6f6f6;
   --warna-primary: #0b8be3;
   --warna-sekunder: #293e92;
   --warna-tulisan: #333;
@@ -20,9 +26,9 @@ h1, h2, h3, h4, h5, h6, a, p {
 .btn-custom {
   font-family: "Raleway", sans-serif;
   text-transform: uppercase;
-  color: #fff;
-  background-color: #5ca9fb;
-  background-image: linear-gradient(to right, #5ca9fb 0%, #6372ff 100%);
+  color: var(--warna-tulisan2);
+  background-color: var(--warna-aksen);
+  background-image: linear-gradient(to right, var(--warna-aksen) 0%, var(--warna-aksen-2) 100%);
   padding: 14px 34px;
   letter-spacing: 1px;
   margin: 0;
@@ -37,9 +43,9 @@ h1, h2, h3, h4, h5, h6, a, p {
 .btn-custom.focus,
 .btn-custom:active,
 .btn-custom.active {
-  color: #fff;
+  color: var(--warna-tulisan2);
   background-image: none;
-  background-color: #6372ff;
+  background-color: var(--warna-aksen-2);
 }
 .btn:active,
 .btn.active {
@@ -73,7 +79,7 @@ a:focus,
 .section-title h2::after {
   position: absolute;
   content: "";
-  background: linear-gradient(to right, #5ca9fb 0%, #6372ff 100%);
+  background: linear-gradient(to right, var(--warna-aksen) 0%, var(--warna-aksen-2) 100%);
   height: 4px;
   width: 60px;
   bottom: 0;
@@ -136,7 +142,7 @@ a:focus,
 }
 .intro h1 {
   font-family: "Raleway", sans-serif;
-  color: #fff;
+  color: var(--warna-tulisan2);
   font-size: 82px;
   font-weight: 700;
   text-transform: uppercase;
@@ -145,10 +151,10 @@ a:focus,
 }
 .intro h1 span {
   font-weight: 800;
-  color: #5ca9fb;
+  color: var(--warna-aksen);
 }
 .intro p {
-  color: #fff;
+  color: var(--warna-tulisan2);
   font-size: 22px;
   font-weight: 300;
   line-height: 30px;
@@ -166,7 +172,7 @@ header .intro-text {
 /* ORGANIZED START */
 /* ORGANIZED START */
 .organized-section {
-  background-color: #f6f6f6;
+  background-color: var(--warna-latar);
   padding: 100px 0;
 }
 
@@ -195,7 +201,7 @@ header .intro-text {
 .about-section h2::after {
   position: absolute;
   content: "";
-  background: linear-gradient(to right, #5ca9fb 0%, #6372ff 100%);
+  background: linear-gradient(to right, var(--warna-aksen) 0%, var(--warna-aksen-2) 100%);
   height: 4px;
   width: 60px;
   bottom: 0;
@@ -212,7 +218,7 @@ header .intro-text {
   align-items: center;
 }
 .about-section img {
-  background: #fff;
+  background: var(--warna-tulisan2);
   border-right: 0;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.06);
 }
@@ -235,7 +241,7 @@ header .intro-text {
 .process-section h1{
   font-weight: 900;
   text-align: center;
-  color: #333;
+  color: var(--warna-tulisan);
   text-decoration: underline;
   margin-bottom: 5rem;
 }
@@ -249,7 +255,7 @@ header .intro-text {
 .process-section .process-work .number {
   text-align: center;
   color: black;
-  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+  background: linear-gradient(to right, var(--warna-aksen-2) 0%, var(--warna-aksen) 100%);
   border: 1px dashed white;
   border-radius: 50%;
   font-size: 28px;
@@ -276,14 +282,14 @@ header .intro-text {
 #services {
   padding-bottom: 100px;
   padding-top: 80px;
-  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
-  color: #fff;
+  background: linear-gradient(to right, var(--warna-aksen-2) 0%, var(--warna-aksen) 100%);
+  color: var(--warna-tulisan2);
 }
 #services .service-desc {
   margin: 10px 10px 20px;
 }
 #services h2 {
-  color: #fff;
+  color: var(--warna-tulisan2);
 }
 #services .section-title h2::after {
   position: absolute;
@@ -300,15 +306,15 @@ header .intro-text {
   width: 120px;
   height: 120px;
   padding: 40px 0;
-  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+  background: linear-gradient(to right, var(--warna-aksen-2) 0%, var(--warna-aksen) 100%);
   border-radius: 50%;
-  color: #fff;
+  color: var(--warna-tulisan2);
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
 }
 #services h3 {
   font-weight: 500;
   padding: 5px 0;
-  color: #fff;
+  color: var(--warna-tulisan2);
 }
 #services p {
   color: rgba(255, 255, 255, 0.75);
@@ -325,7 +331,7 @@ header .intro-text {
 /* Testimonials Section */
 #testimonials {
   padding: 100px 0;
-  background: #f6f6f6;
+  background: var(--warna-latar);
 }
 #testimonials i {
   color: #e6e6e6;
@@ -370,7 +376,7 @@ header .intro-text {
 /* CONTACT START */
 .contact-section  {
   padding: 100px 0 60px 0;
-  background: linear-gradient(to right, #6372ff 0%, #5ca9fb 100%);
+  background: linear-gradient(to right, var(--warna-aksen-2) 0%, var(--warna-aksen) 100%);
   color: rgba(255, 255, 255, 0.75);
 }
 .contact-section  .section-title {
@@ -381,7 +387,7 @@ header .intro-text {
   font-size: 16px;
 }
 .contact-section  h2 {
-  color: #fff;
+  color: var(--warna-tulisan2);
   margin-top: 10px;
   margin-bottom: 15px;
   padding-bottom: 15px;
@@ -396,7 +402,7 @@ header .intro-text {
   left: 30px;
 }
 .contact-section  h3 {
-  color: #fff;
+  color: var(--warna-tulisan2);
   margin-top: 80px;
   margin-bottom: 25px;
   padding-bottom: 20px;
@@ -412,11 +418,11 @@ header .intro-text {
 .contact-section  .btn-custom {
   margin: 30px 0;
   background: transparent;
-  border: 2px solid #fff;
+  border: 2px solid var(--warna-tulisan2);
 }
 .contact-section  .btn-custom:hover {
   color: #1f386e;
-  background: #fff;
+  background: var(--warna-tulisan2);
 }
 label {
   color: var(--warna-tulisan);
@@ -432,9 +438,9 @@ label {
   font-size: 16px;
   line-height: 1.42857143;
   color: #444;
-  background-color: #fff;
+  background-color: var(--warna-tulisan2);
   background-image: none;
-  border: 1px solid #ddd;
+  border: 1px solid var(--warna-garis);
   border-radius: 0;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -449,16 +455,16 @@ label {
   box-shadow: transparent;
 }
 .form-control::-webkit-input-placeholder {
-  color: #777;
+  color: var(--warna-redup);
 }
 .form-control:-moz-placeholder {
-  color: #777;
+  color: var(--warna-redup);
 }
 .form-control::-moz-placeholder {
-  color: #777;
+  color: var(--warna-redup);
 }
 .form-control:-ms-input-placeholder {
-  color: #777;
+  color: var(--warna-redup);
 }
 .contact-section  .contact-item {
   margin: 20px 0;
@@ -489,14 +495,14 @@ label {
   width: 48px;
   height: 48px;
   padding: 12px 0;
-  border: 2px solid #fff;
-  color: #fff;
+  border: 2px solid var(--warna-tulisan2);
+  color: var(--warna-tulisan2);
   border-radius: 50%;
   transition: all 0.3s;
 }
 .contact-section  .social i.fa:hover {
   color: #608dfd;
-  background: #fff;
+  background: var(--warna-tulisan2);
 }
 /* CONTACT END */
 /* CONTACT END */
@@ -559,7 +565,7 @@ label {
 }
 
 .faq {
-  background: #ffffff;
+  background: var(--warna-tulisan2);
   box-shadow: 0 2px 48px 0 rgba(0, 0, 0, 0.06);
   border-radius: 4px;
 }
@@ -615,7 +621,7 @@ label {
   border-radius: 100px;
   text-align: center;
   background: #007bff;
-  color: #fff;
+  color: var(--warna-tulisan2);
   font-size: 12px;
   margin-right: 20px;
 }
@@ -953,15 +959,15 @@ display: none;
 }
 
 .registration-section form .button input:hover{
-  box-shadow: 12px 12px #262521;
+  box-shadow: 12px 12px var(--warna-gelap);
   background-color: var(--warna-sekunder) !important;
-  border-color: #262521;
+  border-color: var(--warna-gelap);
   transition: .3s;
 }
 .registration-section form .buttonindo input:hover{
-  box-shadow: 12px 12px #262521;
+  box-shadow: 12px 12px var(--warna-gelap);
   background-color: var(--warna-sekunder) !important;
-  border-color: #262521;
+  border-color: var(--warna-gelap);
   transition: .3s;
 }
 
@@ -1069,7 +1075,7 @@ input[type="checkbox"] {
 }
 .thankyou-table td {
   padding: 10px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--warna-garis);
 }
 .thankyou-table td:first-child {
   font-weight: bold;
