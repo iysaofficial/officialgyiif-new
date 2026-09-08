@@ -1,12 +1,9 @@
 import { useEffect, useState } from "react";
+import Script from "next/script";
 import Navigation from "../../components/navigation";
 import { Footer } from "@/components/footer";
 import { ambilIdentitas } from "@/lib/dashboardApi";
-import {
-  keadaanPendaftaran,
-  tanggalPanjang,
-  urlPendaftaran,
-} from "@/lib/registrasi";
+import { keadaanPendaftaran, tanggalPanjang } from "@/lib/registrasi";
 
 /**
  * Pintu masuk pendaftaran.
@@ -19,6 +16,21 @@ import {
  *
  * Sekarang tahun, tanggal, dan buka-tutupnya datang dari dasbor. Tidak ada
  * lagi yang perlu disunting di kode saat pendaftaran dibuka atau ditutup.
+ *
+ * ── Kenapa formulirnya DI SINI, bukan di dasbor ───────────────────────────
+ *
+ * Versi sebelumnya melempar orang ke `dashboard.iysa.or.id/register/<uuid>`.
+ * Itu bekerja, tapi memindahkan pendaftar ke tampilan yang sama sekali bukan
+ * milik ajang ini — logo, warna, dan navigasinya berganti di tengah jalan,
+ * tepat pada langkah yang paling menentukan.
+ *
+ * Sekarang formulirnya dirender di halaman ini lewat berkas sisipan dari API
+ * dasbor. Yang mengurus pendaftarannya tetap dasbor — peserta, tim, tagihan,
+ * dan surel undangan semuanya lahir di sana — tapi orangnya tidak pernah
+ * meninggalkan gyiif.or.id.
+ *
+ * Wadahnya menyebut AKRONIM, bukan id edisi. Edisi yang dilayani ditentukan
+ * pin di dasbor, jadi berkas ini tidak perlu disunting saat 2027 berganti 2028.
  *
  * ── Kenapa keadaannya dihitung DUA KALI ───────────────────────────────────
  *
@@ -36,6 +48,17 @@ export default function HomeRegist({ identitas, keadaanAwal }) {
   useEffect(() => {
     setKeadaan(keadaanPendaftaran(identitas));
   }, [identitas]);
+
+  /*
+   * Wadah formulirnya baru ada di DOM setelah keadaannya "buka". Kalau
+   * skripnya sudah termuat lebih dulu — dan pada perpindahan halaman memang
+   * begitu — ia sudah selesai memindai dan tidak akan memindai lagi sendiri.
+   */
+  useEffect(() => {
+    if (keadaan === "buka" && typeof window !== "undefined") {
+      window.IysaDaftar?.pasang();
+    }
+  }, [keadaan]);
 
   const tahun = identitas?.tahun ?? "";
   const judul = `${identitas?.akronim ?? "GYIIF"} ${tahun}`.trim();
@@ -80,19 +103,17 @@ export default function HomeRegist({ identitas, keadaanAwal }) {
           <div className="link-web mx-auto text-center">
             {keadaan === "buka" ? (
               /*
-               * Tautan biasa, bukan `next/link`: tujuannya di luar situs ini.
-               * `rel="noopener"` karena ia membuka tab baru — tanpa itu,
-               * halaman tujuan bisa menyentuh tab asalnya lewat `window.opener`.
+               * Wadah formulir sisipan. Dibiarkan kosong di sini — berkas
+               * `daftar.js` yang mengisinya, di dalam shadow root supaya CSS
+               * situs ini tidak bisa merusaknya dan sebaliknya.
+               *
+               * `maxWidth` dan `margin` di sini semata memusatkannya di dalam
+               * `link-web`; sisa tampilannya milik berkas sisipan itu.
                */
-              <a
-                className="btn btn-custom text-center me-lg-5 m-2"
-                href={urlPendaftaran()}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                REGISTER NOW{" "}
-                <i className="fa-solid fa-arrow-up-right-from-square"></i>
-              </a>
+              <div
+                data-iysa-daftar="gyiif"
+                style={{ maxWidth: "44rem", margin: "0 auto", textAlign: "left" }}
+              />
             ) : (
               /*
                * Bukan tombol yang dimatikan, melainkan keterangan.
@@ -113,6 +134,19 @@ export default function HomeRegist({ identitas, keadaanAwal }) {
         </div>
       </section>
       <Footer />
+
+      {/*
+        `afterInteractive`: formulirnya bukan yang pertama dibaca orang saat
+        halaman terbuka, jadi ia tidak perlu menahan render. `onLoad` dan
+        `useEffect` di atas sama-sama memanggil `pasang` — yang pertama untuk
+        kunjungan langsung, yang kedua untuk perpindahan dari halaman lain
+        yang tidak memuat ulang skripnya.
+      */}
+      <Script
+        src="https://api-dashboard.iysa.or.id/embed/daftar.js"
+        strategy="afterInteractive"
+        onLoad={() => window.IysaDaftar?.pasang()}
+      />
     </>
   );
 }
