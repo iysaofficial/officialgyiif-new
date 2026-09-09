@@ -179,6 +179,13 @@ export default function HomeRegist({ identitas, keadaanAwal }) {
             <div
               data-iysa-daftar="gyiif"
               /*
+                Alamat API disebut EKSPLISIT karena berkas formulirnya sedang
+                dilayani situs ini sendiri (lihat catatan di <Script> bawah).
+                Tanpa ini widget menebak asalnya dari alamat skripnya, yaitu
+                gyiif.or.id — dan permintaan pertamanya menjawab 404.
+              */
+              data-iysa-api="https://api-dashboard.iysa.or.id"
+              /*
                 Bahasa AWAL saja — untuk layar pilihan jalur dan pesan saat
                 pendaftaran belum dibuka. Situs ini berbahasa Inggris, jadi
                 yang belum memilih apa pun membaca bahasa yang sama dengan
@@ -233,8 +240,40 @@ export default function HomeRegist({ identitas, keadaanAwal }) {
         kunjungan langsung, yang kedua untuk perpindahan dari halaman lain
         yang tidak memuat ulang skripnya.
       */}
+      {/*
+        ── SEMENTARA: formulirnya dilayani dari situs ini, bukan dari API ──────
+
+        Alamat aslinya `https://api-dashboard.iysa.or.id/embed/daftar.js`, dan
+        ke sanalah ini harus dikembalikan.
+
+        Kenapa disalin ke sini: deploy backend berhasil tapi tidak sampai ke
+        mesin yang melayani `api-dashboard.iysa.or.id`. Log deploy 9 September
+        08:53 menunjukkan VPS-nya reset ke 386a7a0, membangun image, dan
+        merekreasi container `gx10` — sementara berkas yang benar-benar
+        disajikan domain itu masih identik bita-per-bita dengan versi sebelum
+        PR #8 (25.343 bita, versus 47.499 di main). Rute `POST
+        /api/teams/:id/confirm-participation` dari PR #7 juga menjawab 404,
+        sama seperti rute yang tidak pernah ada.
+
+        Artinya origin Cloudflare untuk domain itu bukan mesin yang di-deploy
+        GitHub Actions. Selama itu belum dibetulkan, tidak ada perubahan pada
+        formulir yang bisa sampai ke pendaftar — dan pendaftar tetap melihat
+        satu dropdown berisi tujuh paket dengan rupiah dan dolar bercampur.
+
+        ── Cara mengembalikan ────────────────────────────────────────────────
+
+        Begitu `curl -s https://api-dashboard.iysa.or.id/embed/daftar.js |
+        grep -c bacaJalur` menjawab lebih dari 0, kembalikan `src` ke alamat
+        API dan hapus `public/embed/daftar.js`. Satu baris, satu berkas.
+
+        Selama salinan ini ada, perbaikan formulir di repositori backend TIDAK
+        sampai ke situs ini sendiri — itu harga yang dibayar, dan itu sebabnya
+        ini sementara.
+
+        Salinan ini dari BE-IYSA-DASHBOARD cf97a87.
+      */}
       <Script
-        src="https://api-dashboard.iysa.or.id/embed/daftar.js"
+        src="/embed/daftar.js"
         strategy="afterInteractive"
         onLoad={() => window.IysaDaftar?.pasang()}
       />
