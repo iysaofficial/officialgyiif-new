@@ -779,9 +779,20 @@ label {
 
 /* HOMEREGIST START */
 /* HOMEREGIST START */
+/*
+ * `min-height`, BUKAN `height`.
+ *
+ * Section ini dirancang saat isinya cuma dua tombol, jadi `height: 100vh`
+ * tidak pernah jadi masalah. Begitu formulir pendaftaran dirender di dalamnya,
+ * isinya jadi lebih tinggi daripada layar — dan yang meluap adalah SECTION-nya,
+ * bukan halamannya, sehingga bagian bawah formulir menimpa footer di bawahnya.
+ *
+ * `min-height` menjaga tampilan lamanya untuk isi yang pendek — tetap memenuhi
+ * layar dan tetap di tengah — sambil membiarkannya tumbuh saat isinya panjang.
+ */
 .homeregist-section {
-  padding: 75px 25px 75px 25px  ;
-  height: 100vh;
+  padding: 110px 25px 80px 25px;
+  min-height: 100vh;
   background: var(--warna-tulisan2);
   display: flex;
   justify-content: center;

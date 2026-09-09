@@ -68,69 +68,149 @@ export default function HomeRegist({ identitas, keadaanAwal }) {
   return (
     <>
       <Navigation />
-      <section className="homeregist-section">
-        <div>
-          <div className="wrapper">
-            <div className="text-center">
-              <h1 className="mx-auto text-sm md:text-lg lg:text-5xl">
-                REGISTRATION FORM
-              </h1>
-              <h3 className="mx-auto mt-5 mb-2 text-sm md:text-lg lg:text-2xl">
-                {keadaan === "buka"
-                  ? `Registration for ${judul} is now open`
-                  : keadaan === "belum"
-                  ? `Registration for ${judul} opens soon`
-                  : keadaan === "tutup"
-                  ? `Registration for ${judul} has closed`
-                  : `Registration for ${judul}`}
-              </h3>
+      {/*
+        Latar diberi rona tipis lewat gaya sebaris, bukan lewat kelasnya.
+        `.homeregist-section` dipakai juga oleh homeindo dan homeinter, dan
+        keduanya tidak sedang diubah — menyentuh kelasnya berarti mengubah dua
+        halaman yang tidak diminta siapa pun.
 
-              {/* Tanggalnya disebut apa pun keadaannya. Orang yang datang
-                  terlalu awal perlu tahu kapan harus kembali; yang terlambat
-                  perlu tahu bahwa ia memang terlambat, bukan tersesat. */}
-              {(buka || tutup) && (
-                <p className="mx-auto mb-4 text-sm md:text-base">
-                  {buka && tutup
-                    ? `${buka} — ${tutup}`
-                    : buka
-                    ? `Opens ${buka}`
-                    : `Closes ${tutup}`}
-                </p>
-              )}
-            </div>
-          </div>
+        Ronanya ada supaya kartu formulir yang putih punya sesuatu untuk
+        berdiri di atasnya. Putih di atas putih membuat kartunya lenyap, dan
+        yang tersisa deretan kotak isian yang mengambang tanpa batas.
+      */}
+      <section className="homeregist-section" style={{ background: "#f4f6fb" }}>
+        <div style={{ width: "100%", maxWidth: "46rem", margin: "0 auto" }}>
 
-          <div className="link-web mx-auto text-center">
-            {keadaan === "buka" ? (
-              /*
-               * Wadah formulir sisipan. Dibiarkan kosong di sini — berkas
-               * `daftar.js` yang mengisinya, di dalam shadow root supaya CSS
-               * situs ini tidak bisa merusaknya dan sebaliknya.
-               *
-               * `maxWidth` dan `margin` di sini semata memusatkannya di dalam
-               * `link-web`; sisa tampilannya milik berkas sisipan itu.
-               */
-              <div
-                data-iysa-daftar="gyiif"
-                style={{ maxWidth: "44rem", margin: "0 auto", textAlign: "left" }}
-              />
-            ) : (
-              /*
-               * Bukan tombol yang dimatikan, melainkan keterangan.
-               *
-               * Tombol mati yang tetap terlihat seperti tombol akan diklik
-               * berulang oleh orang yang mengira halamannya rusak. Yang
-               * dibutuhkan di sini kalimat, bukan kendali.
-               */
-              <p className="mx-auto text-center m-2">
-                {keadaan === "belum"
-                  ? "Registration has not opened yet. Please come back on the date above."
-                  : keadaan === "tutup"
-                  ? "Registration for this edition is closed."
-                  : "Registration information is not available right now. Please try again shortly."}
+          <header style={{ marginBottom: "1.75rem" }}>
+            <p
+              style={{
+                margin: "0 0 .35rem",
+                fontSize: ".75rem",
+                letterSpacing: ".18em",
+                textTransform: "uppercase",
+                color: "#6b7383",
+                fontWeight: 600,
+              }}
+            >
+              {judul || "GYIIF"}
+            </p>
+
+            <h1
+              style={{
+                margin: "0 0 .85rem",
+                fontSize: "clamp(1.6rem, 4vw, 2.4rem)",
+                lineHeight: 1.15,
+                fontWeight: 700,
+                color: "#1b2333",
+              }}
+            >
+              Registration Form
+            </h1>
+
+            {/*
+              Keadaannya jadi PIL, bukan kalimat panjang.
+
+              Sebelumnya ia baris teks sebesar judul kedua, dan dari kejauhan
+              tidak bisa dibedakan dari judulnya sendiri. Yang dicari orang di
+              sini cuma satu hal — buka atau belum — dan itu jawaban sepatah
+              kata, bukan sekalimat.
+            */}
+            <span
+              style={{
+                display: "inline-block",
+                padding: ".3rem .8rem",
+                borderRadius: "999px",
+                fontSize: ".8rem",
+                fontWeight: 600,
+                background:
+                  keadaan === "buka"
+                    ? "rgba(20,107,92,.1)"
+                    : keadaan === "tutup"
+                    ? "rgba(107,115,131,.12)"
+                    : "rgba(41,62,146,.1)",
+                color:
+                  keadaan === "buka"
+                    ? "#116052"
+                    : keadaan === "tutup"
+                    ? "#5b6273"
+                    : "#293e92",
+              }}
+            >
+              {keadaan === "buka"
+                ? "Pendaftaran dibuka"
+                : keadaan === "belum"
+                ? "Belum dibuka"
+                : keadaan === "tutup"
+                ? "Sudah ditutup"
+                : "Status belum diketahui"}
+            </span>
+
+            {/* Tanggalnya disebut apa pun keadaannya. Orang yang datang
+                terlalu awal perlu tahu kapan harus kembali; yang terlambat
+                perlu tahu bahwa ia memang terlambat, bukan tersesat. */}
+            {(buka || tutup) && (
+              <p
+                style={{
+                  margin: ".7rem 0 0",
+                  fontSize: ".9rem",
+                  color: "#5b6273",
+                }}
+              >
+                {buka && tutup
+                  ? `${buka} — ${tutup}`
+                  : buka
+                  ? `Dibuka ${buka}`
+                  : `Ditutup ${tutup}`}
               </p>
             )}
-          </div>
+          </header>
+
+          {keadaan === "buka" ? (
+            /*
+             * Wadah formulir sisipan. Dibiarkan kosong di sini — berkas
+             * `daftar.js` yang mengisinya, di dalam shadow root supaya CSS
+             * situs ini tidak bisa merusaknya dan sebaliknya.
+             *
+             * Warnanya diwariskan lewat custom property, satu-satunya hal yang
+             * menembus shadow root. Yang dipakai `--warna-sekunder` milik situs
+             * ini, supaya formulirnya memakai biru GYIIF dan bukan navy bawaan
+             * IYSA.
+             */
+            <div
+              data-iysa-daftar="gyiif"
+              style={{
+                "--iysa-aksen": "#293e92",
+                "--iysa-radius": "10px",
+                textAlign: "left",
+              }}
+            />
+          ) : (
+            /*
+             * Bukan tombol yang dimatikan, melainkan keterangan.
+             *
+             * Tombol mati yang tetap terlihat seperti tombol akan diklik
+             * berulang oleh orang yang mengira halamannya rusak. Yang
+             * dibutuhkan di sini kalimat, bukan kendali.
+             */
+            <div
+              style={{
+                background: "#fff",
+                border: "1px solid #dfe3ec",
+                borderRadius: "12px",
+                padding: "2rem 1.5rem",
+                textAlign: "center",
+                color: "#5b6273",
+                fontSize: ".95rem",
+                lineHeight: 1.65,
+              }}
+            >
+              {keadaan === "belum"
+                ? "Pendaftaran belum dibuka. Silakan kembali pada tanggal di atas."
+                : keadaan === "tutup"
+                ? "Pendaftaran edisi ini sudah ditutup."
+                : "Informasi pendaftaran belum bisa dimuat. Coba beberapa saat lagi."}
+            </div>
+          )}
         </div>
       </section>
       <Footer />
