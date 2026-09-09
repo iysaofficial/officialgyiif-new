@@ -69,14 +69,14 @@ export default function HomeRegist({ identitas, keadaanAwal }) {
     <>
       <Navigation />
       {/*
-        Latar diberi rona tipis lewat gaya sebaris, bukan lewat kelasnya.
-        `.homeregist-section` dipakai juga oleh homeindo dan homeinter, dan
-        keduanya tidak sedang diubah — menyentuh kelasnya berarti mengubah dua
-        halaman yang tidak diminta siapa pun.
+        Rona tipis supaya kartu formulir yang putih punya sesuatu untuk berdiri
+        di atasnya. Putih di atas putih membuat kartunya lenyap, dan yang
+        tersisa deretan kotak isian yang mengambang tanpa batas.
 
-        Ronanya ada supaya kartu formulir yang putih punya sesuatu untuk
-        berdiri di atasnya. Putih di atas putih membuat kartunya lenyap, dan
-        yang tersisa deretan kotak isian yang mengambang tanpa batas.
+        Masih lewat gaya sebaris meski `.homeregist-section` kini cuma dipakai
+        halaman ini: kelasnya hidup di `globals.css` bersama seluruh gaya situs,
+        dan memindahkan warna ke sana berarti satu hal lagi yang harus dicari di
+        berkas 900 baris saat halaman ini disunting berikutnya.
       */}
       <section className="homeregist-section" style={{ background: "#f4f6fb" }}>
         <div style={{ width: "100%", maxWidth: "46rem", margin: "0 auto" }}>
@@ -137,12 +137,12 @@ export default function HomeRegist({ identitas, keadaanAwal }) {
               }}
             >
               {keadaan === "buka"
-                ? "Pendaftaran dibuka"
+                ? "Registration open"
                 : keadaan === "belum"
-                ? "Belum dibuka"
+                ? "Not open yet"
                 : keadaan === "tutup"
-                ? "Sudah ditutup"
-                : "Status belum diketahui"}
+                ? "Closed"
+                : "Status unavailable"}
             </span>
 
             {/* Tanggalnya disebut apa pun keadaannya. Orang yang datang
@@ -159,8 +159,8 @@ export default function HomeRegist({ identitas, keadaanAwal }) {
                 {buka && tutup
                   ? `${buka} — ${tutup}`
                   : buka
-                  ? `Dibuka ${buka}`
-                  : `Ditutup ${tutup}`}
+                  ? `Opens ${buka}`
+                  : `Closed ${tutup}`}
               </p>
             )}
           </header>
@@ -178,6 +178,17 @@ export default function HomeRegist({ identitas, keadaanAwal }) {
              */
             <div
               data-iysa-daftar="gyiif"
+              /*
+                Bahasa AWAL saja — untuk layar pilihan jalur dan pesan saat
+                pendaftaran belum dibuka. Situs ini berbahasa Inggris, jadi
+                yang belum memilih apa pun membaca bahasa yang sama dengan
+                halaman yang memuatnya.
+
+                Sesudah jalurnya dipilih, bahasanya ditentukan pilihan itu:
+                peserta Indonesia membaca formulirnya dalam bahasa Indonesia
+                meski halaman ini berbahasa Inggris.
+              */
+              data-iysa-bahasa="en"
               style={{
                 "--iysa-aksen": "#293e92",
                 "--iysa-radius": "10px",
@@ -205,10 +216,10 @@ export default function HomeRegist({ identitas, keadaanAwal }) {
               }}
             >
               {keadaan === "belum"
-                ? "Pendaftaran belum dibuka. Silakan kembali pada tanggal di atas."
+                ? "Registration has not opened yet. Please come back on the date above."
                 : keadaan === "tutup"
-                ? "Pendaftaran edisi ini sudah ditutup."
-                : "Informasi pendaftaran belum bisa dimuat. Coba beberapa saat lagi."}
+                ? "Registration for this edition is closed."
+                : "Registration information could not be loaded. Please try again shortly."}
             </div>
           )}
         </div>
