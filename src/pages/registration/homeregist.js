@@ -145,10 +145,18 @@ export default function HomeRegist({ identitas, keadaanAwal }) {
                 : "Status unavailable"}
             </span>
 
-            {/* Tanggalnya disebut apa pun keadaannya. Orang yang datang
-                terlalu awal perlu tahu kapan harus kembali; yang terlambat
-                perlu tahu bahwa ia memang terlambat, bukan tersesat. */}
-            {(buka || tutup) && (
+            {/*
+              Tanggalnya disebut hanya saat pendaftarannya BELUM atau SUDAH
+              tutup.
+
+              Yang datang terlalu awal perlu tahu kapan harus kembali; yang
+              terlambat perlu tahu bahwa ia memang terlambat, bukan tersesat.
+              Tapi saat pendaftarannya sedang buka, keduanya tidak berlaku:
+              formulirnya ada persis di bawah pil "Registration open", dan
+              rentang tanggal di antara keduanya cuma satu baris yang harus
+              dilewati sebelum sampai ke yang dicari.
+            */}
+            {keadaan !== "buka" && (buka || tutup) && (
               <p
                 style={{
                   margin: ".7rem 0 0",
