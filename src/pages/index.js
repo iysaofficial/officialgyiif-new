@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 
 import Navigation from "@/components/navigation";
 import { Mainhero } from "@/components/Mainhero";
-import { ambilIdentitas } from "@/lib/dashboardApi";
+import { ambilGuidebook, ambilIdentitas } from "@/lib/dashboardApi";
 import { Organized } from "@/components/organized";
 import { About } from "@/components/about";
 import { Process } from "@/components/process";
@@ -15,7 +15,7 @@ import { Timevenue } from "@/components/timevenue";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function Home({ identitas }) {
+export default function Home({ identitas, guidebook }) {
   return (
     <>
       <Head>
@@ -24,7 +24,7 @@ export default function Home({ identitas }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Navigation />
-      <Mainhero identitas={identitas} />
+      <Mainhero identitas={identitas} guidebook={guidebook} />
       <Organized />
       <About />
       {/* <Timevenue /> */}
@@ -44,8 +44,11 @@ export default function Home({ identitas }) {
  * terbuang menanyakan sesuatu yang di sana pun masih disimpan.
  */
 export async function getStaticProps() {
+  /* Keduanya diambil berbarengan — dua panggilan berurutan menambah tunggu
+     tanpa alasan, dan yang satu tidak bergantung hasil yang lain. */
+  const [identitas, guidebook] = await Promise.all([ambilIdentitas(), ambilGuidebook()]);
   return {
-    props: { identitas: await ambilIdentitas() },
+    props: { identitas, guidebook },
     revalidate: 300,
   };
 }

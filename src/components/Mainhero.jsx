@@ -23,7 +23,7 @@ const ParticlesBg = dynamic(() => import("particles-bg"), { ssr: false });
  * lebih baik daripada situs yang mengundang orang mendaftar ke pintu yang
  * belum tentu terbuka.
  */
-export const Mainhero = ({ identitas }) => {
+export const Mainhero = ({ identitas, guidebook }) => {
   const keadaan = keadaanPendaftaran(identitas);
   const tahun = identitas?.tahun ?? "2027";
   const buka = keadaan === "buka";
@@ -51,14 +51,25 @@ export const Mainhero = ({ identitas }) => {
               </a>
             </Link>
           )}
-          {/* <Link
-            href="https://drive.google.com/file/d/1hlaFs_WJC865Hx4zwqodTtEFL2tqSy9l/view?usp=sharing"
-            legacyBehavior
-          >
-            <a className="btn btn-custom btn-action m-2" target="_blank">
+          {/* Guidebook muncul hanya kalau panitia sudah menerbitkannya dari
+              dasbor. Dulu tautannya dipaku ke satu berkas Google Drive dan
+              dikomentari begitu edisinya lewat — jadi ia selalu tertinggal satu
+              edisi, dan menghidupkannya kembali menuntut programmer. Persis
+              pola yang sudah dibereskan untuk tulisan "Coming Soon" di atas.
+
+              Tanpa guidebook terbit tombolnya TIDAK ADA, bukan mati: tombol
+              yang terlihat tapi tidak membawa ke mana pun sudah pernah membuat
+              orang menyimpulkan halamannya rusak. */}
+          {guidebook?.url && (
+            <a
+              className="btn btn-custom btn-action m-2"
+              href={guidebook.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Guide Book
             </a>
-          </Link> */}
+          )}
         </div>
         <ParticlesBg
           type="circle"

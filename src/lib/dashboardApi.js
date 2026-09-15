@@ -69,3 +69,20 @@ export async function ambilIdentitas(opsi = {}) {
   const seksi = await ambilSeksi('identitas', opsi);
   return seksi?.identitas ?? null;
 }
+
+/**
+ * Guidebook edisi yang sedang disiarkan — hanya yang SUDAH DITERBITKAN.
+ *
+ * Penyaringnya di dasbor, bukan di sini: payload publik mengirim tautannya
+ * hanya setelah panitia menekan "Terbitkan ke situs". Jadi situs ini cukup
+ * menampilkan apa yang datang, dan tidak perlu tahu apa pun soal alur
+ * pemeriksaannya.
+ *
+ * `null` berarti belum terbit — dan yang belum terbit tidak boleh menyisakan
+ * tombol mati di sorotan.
+ */
+export async function ambilGuidebook(opsi = {}) {
+  const seksi = await ambilSeksi('guidebook', opsi);
+  const url = seksi?.guidebook?.url;
+  return url ? { url, terbit: seksi.guidebook.terbit ?? null } : null;
+}
