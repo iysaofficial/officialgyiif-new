@@ -1,8 +1,39 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Navigation = () => {
+  /**
+   * Buku panduan edisi berjalan, diambil dari dasbor.
+   *
+   * Butir di bawahnya ditulis tangan tiap tahun, jadi edisi yang baru
+   * diterbitkan panitia lewat dasbor tidak pernah sampai ke menu ini — yang
+   * mencarinya di sini menemukan tahun lalu sebagai yang terbaru, padahal
+   * tautannya sudah tayang di tombol halaman depan.
+   *
+   * Diambil di peramban: menu ini dipakai semua halaman, dan sebagiannya
+   * statis tanpa `getStaticProps`. Gagal mengambil berarti menu kembali seperti
+   * sekarang, bukan menu yang kosong.
+   */
+  const [panduanTerbit, setPanduanTerbit] = useState(null);
+
+  useEffect(() => {
+    let hidup = true;
+    (async () => {
+      try {
+        const { ambilGuidebook, ambilIdentitas } = await import("@/lib/dashboardApi");
+        const [gb, id] = await Promise.all([
+          ambilGuidebook({ cache: "no-store" }),
+          ambilIdentitas({ cache: "no-store" }),
+        ]);
+        if (hidup && gb?.url) setPanduanTerbit({ url: gb.url, tahun: id?.tahun ?? "" });
+      } catch {
+        /* Dibiarkan: menu tetap memuat edisi-edisi lama. */
+      }
+    })();
+    return () => { hidup = false; };
+  }, []);
+
   const [openDropdown, setOpenDropdown] = useState(null);
   const [openSubDropdown, setOpenSubDropdown] = useState(null);
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
@@ -214,6 +245,13 @@ const Navigation = () => {
                       openDropdown === "guidebook" ? " show" : ""
                     }`}
                   >
+                    {panduanTerbit && (
+                      <Link href={panduanTerbit.url} legacyBehavior>
+                        <a className="dropdown-item" target="_blank">
+                          Buku Panduan {panduanTerbit.tahun}
+                        </a>
+                      </Link>
+                    )}
                     <Link
                       href="https://drive.google.com/file/d/10hOXD9bRsl-gjfASo3t5EX1Nb0B4QUT6/view?usp=sharing"
                       legacyBehavior

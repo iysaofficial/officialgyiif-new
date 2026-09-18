@@ -278,6 +278,7 @@ export async function getStaticProps() {
       identitas,
       keadaanAwal: keadaanPendaftaran(identitas),
     },
-    revalidate: 300,
+    /* Satu menit — lihat catatan di halaman depan. */
+    revalidate: 60,
   };
 }

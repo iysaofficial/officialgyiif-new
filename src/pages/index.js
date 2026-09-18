@@ -49,6 +49,8 @@ export async function getStaticProps() {
   const [identitas, guidebook] = await Promise.all([ambilIdentitas(), ambilGuidebook()]);
   return {
     props: { identitas, guidebook },
-    revalidate: 300,
+    /* Satu menit: guidebook dan togel pendaftaran diterbitkan dari dasbor,
+       dan yang menekannya menunggu halaman ini berubah. */
+    revalidate: 60,
   };
 }

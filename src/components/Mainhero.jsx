@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { keadaanPendaftaran } from "@/lib/registrasi";
 // Mengimpor ParticlesBg secara dinamis dengan ssr: false
@@ -24,8 +25,43 @@ const ParticlesBg = dynamic(() => import("particles-bg"), { ssr: false });
  * belum tentu terbuka.
  */
 export const Mainhero = ({ identitas, guidebook }) => {
-  const keadaan = keadaanPendaftaran(identitas);
-  const tahun = identitas?.tahun ?? "2027";
+  /**
+   * Keadaan terbaru ditarik lagi di peramban.
+   *
+   * Halaman ini statis dengan `revalidate`, jadi guidebook yang baru
+   * diterbitkan dan togel pendaftaran yang baru ditekan di dasbor baru terlihat
+   * setelah jendela itu lewat DAN ada yang memicu pembangunan ulangnya —
+   * praktisnya beberapa menit, tanpa satu pun tanda bahwa sesuatu sedang
+   * terjadi. Sekali pengambilan saat halaman terbuka membuat pengunjung
+   * berikutnya selalu melihat keadaan sekarang.
+   *
+   * Gagal mengambil berarti tetap memakai nilai dari pembangunan halaman —
+   * bukan tombol yang hilang.
+   */
+  const [identitasKini, setIdentitasKini] = useState(identitas ?? null);
+  const [panduan, setPanduan] = useState(guidebook ?? null);
+
+  useEffect(() => {
+    let hidup = true;
+    (async () => {
+      try {
+        const { ambilGuidebook, ambilIdentitas } = await import("@/lib/dashboardApi");
+        const [gb, id] = await Promise.all([
+          ambilGuidebook({ cache: "no-store" }),
+          ambilIdentitas({ cache: "no-store" }),
+        ]);
+        if (!hidup) return;
+        setPanduan(gb ?? null);
+        if (id) setIdentitasKini(id);
+      } catch {
+        /* Dibiarkan. */
+      }
+    })();
+    return () => { hidup = false; };
+  }, []);
+
+  const keadaan = keadaanPendaftaran(identitasKini);
+  const tahun = identitasKini?.tahun ?? "2027";
   const buka = keadaan === "buka";
 
   return (
@@ -60,10 +96,10 @@ export const Mainhero = ({ identitas, guidebook }) => {
               Tanpa guidebook terbit tombolnya TIDAK ADA, bukan mati: tombol
               yang terlihat tapi tidak membawa ke mana pun sudah pernah membuat
               orang menyimpulkan halamannya rusak. */}
-          {guidebook?.url && (
+          {panduan?.url && (
             <a
               className="btn btn-custom btn-action m-2"
-              href={guidebook.url}
+              href={panduan.url}
               target="_blank"
               rel="noopener noreferrer"
             >
