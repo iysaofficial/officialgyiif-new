@@ -24,6 +24,8 @@ const ParticlesBg = dynamic(() => import("particles-bg"), { ssr: false });
  * lebih baik daripada situs yang mengundang orang mendaftar ke pintu yang
  * belum tentu terbuka.
  */
+const SERI_PANDUAN = process.env.NEXT_PUBLIC_IYSA_SERIES ?? "GYIIF";
+
 export const Mainhero = ({ identitas, guidebook }) => {
   /**
    * Keadaan terbaru ditarik lagi di peramban.
@@ -102,6 +104,10 @@ export const Mainhero = ({ identitas, guidebook }) => {
               href={panduan.url}
               target="_blank"
               rel="noopener noreferrer"
+              /* Membuka modal panduan IYSA (_document.js → embed/panduan.js):
+                 guidebook + Syarat & Ketentuan. Tanpa skripnya, href tetap
+                 membuka PDF guidebook langsung. */
+              data-iysa-panduan={SERI_PANDUAN}
             >
               Guide Book
             </a>

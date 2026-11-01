@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
+const SERI_PANDUAN = process.env.NEXT_PUBLIC_IYSA_SERIES ?? "GYIIF";
+
 const Navigation = () => {
   /**
    * Buku panduan edisi berjalan, diambil dari dasbor.
@@ -247,11 +249,16 @@ const Navigation = () => {
                   >
                     {panduanTerbit && (
                       <Link href={panduanTerbit.url} legacyBehavior>
-                        <a className="dropdown-item" target="_blank">
+                        <a className="dropdown-item" target="_blank" data-iysa-panduan={SERI_PANDUAN}>
                           Buku Panduan {panduanTerbit.tahun}
                         </a>
                       </Link>
                     )}
+                    {/* Syarat & Ketentuan resmi IYSA — dari Master Data dasbor,
+                        dibuka langsung di modal panduan. */}
+                    <a className="dropdown-item pointer" href="#syarat-ketentuan" data-iysa-panduan={SERI_PANDUAN} data-iysa-panduan-jenis="tnc">
+                      Syarat &amp; Ketentuan
+                    </a>
                     <Link
                       href="https://drive.google.com/file/d/10hOXD9bRsl-gjfASo3t5EX1Nb0B4QUT6/view?usp=sharing"
                       legacyBehavior
